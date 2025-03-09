@@ -1,0 +1,32 @@
+[
+  {
+    "id": "book1",
+    "title": "Deep Learning",
+    "description": "The definitive textbook on deep learning, covering both theoretical foundations and practical applications.",
+    "longDescription": "Written by three experts in the field, Deep Learning is the only comprehensive book on the subject. It provides much-needed broad perspective and mathematical preliminaries for beginners, explains cutting-edge research, and presents best practices with advice on the practical aspects of implementing deep learning techniques.",
+    "url": "https://www.deeplearningbook.org/",
+    "thumbnail": "https://images.pexels.com/photos/7319187/pexels-photo-7319187.jpeg",
+    "authors": ["Ian Goodfellow", "Yoshua Bengio", "Aaron Courville"],
+    "publisher": "MIT Press",
+    "year": "2016",
+    "pages": 800,
+    "tags": ["ML", "NLP", "Vision", "Math"],
+    "difficulty": "Advanced",
+    "dateAdded": "2023-01-20"
+  },
+  {
+    "id": "book2",
+    "title": "Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow",
+    "description": "A practical guide to machine learning with Python and its libraries.",
+    "longDescription": "Through a series of recent breakthroughs, deep learning has boosted the entire field of machine learning. Now, even programmers who know close to nothing about this technology can use simple, efficient tools to implement programs capable of learning from data.",
+    "url": "https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/",
+    "thumbnail": "https://images.pexels.com/photos/7319187/pexels-photo-7319187.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "authors": ["Aurélien Géron"],
+    "publisher": "O'Reilly Media",
+    "year": "2019",
+    "pages": 856,
+    "tags": ["ML", "Vision", "NLP"],
+    "difficulty": "Intermediate",
+    "dateAdded": "2023-01-21"
+  }
+]

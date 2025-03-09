@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ML Curated | Learning Resources</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  />
+  <style>
+    /*
+      ----------------------------------------
+      CORE COLOR PALETTE
+      ----------------------------------------
+      - Space Cadet:       #25344F  (unused now)
+      - Slate Gray:        #525254
+      - Tan:               #D8B693
+      - Coffee:            #4F3D28
+      - Caput Mortuum:     #63020A
+
+      ----------------------------------------
+      OVERRIDES
+      ----------------------------------------
+      - Card color:        #2e4156 (charcoal black)
+      - Footer background: #c0b3a5 (malta)
+    */
+
+    :root {
+      --space-cadet: #25344F;
+      --slate-gray: #525254;
+      --tan: #D8B693;
+      --coffee: #4F3D28;
+      --caput-mortuum: #63020A;
+
+      /* Overridden/Added */
+      --card-color: #2e4156;  /* Charcoal black for cards */
+      --footer-bg:  #c0b3a5;  /* Malta for footer */
+
+      /* Functional roles */
+      --bg-color: var(--tan);            /* Main page background */
+      --text: var(--coffee);            /* Default text color */
+      --text-light: var(--tan);         /* Lighter text on dark surfaces */
+      --accent: var(--caput-mortuum);   /* Accent color for tags, etc. */
+      --primary: var(--coffee);         /* Primary button/element color */
+      --border: var(--slate-gray);      /* For subtle borders */
+      
+      /* Shadows (based on coffee) */
+      --card-shadow: rgba(79, 61, 40, 0.15) 0px 8px 24px;
+      --btn-shadow: rgba(79, 61, 40, 0.15) 0px 1px 2px 0px;
+
+      /* Hero gradient from Tan to Coffee */
+      --hero-bg-start: var(--tan);
+      --hero-bg-end: var(--coffee);
+    }
+
+    /* Reset and base typography */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+        Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text);
+      line-height: 1.6;
+      transition: all 0.3s ease;
+    }
+
+    /* Removing theme toggle entirely */
+    .theme-toggle {
+      display: none;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      background: linear-gradient(
+        135deg,
+        var(--hero-bg-start) 0%,
+        var(--hero-bg-end) 100%
+      );
+      color: var(--text-light);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://api.placeholder.com/1920/1080?text=');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.2;
+      mix-blend-mode: overlay;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+      font-weight: 300;
+    }
+
+    /* Quote box in the hero */
+    .quote-box {
+      position: relative;
+      max-width: 600px;
+      margin: 2rem auto;
+      background: var(--coffee);
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: var(--card-shadow);
+    }
+
+    .quote-text {
+      font-size: 1.25rem;
+      line-height: 1.6;
+      font-style: italic;
+      color: var(--tan);
+      margin-bottom: 1rem;
+      text-align: left;
+    }
+
+    .quote-author {
+      font-weight: 600;
+      color: var(--tan);
+      text-align: right;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .hero-button {
+      background-color: var(--primary);
+      color: var(--tan);
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: var(--btn-shadow);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .hero-button:hover {
+      background-color: var(--caput-mortuum);
+      transform: translateY(-5px);
+      box-shadow: rgba(79, 61, 40, 0.25) 0px 15px 30px -8px;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 1rem;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      position: relative;
+      display: inline-block;
+      color: var(--coffee);
+    }
+
+    .section-title h2::after {
+      content: "";
+      position: absolute;
+      height: 4px;
+      width: 60%;
+      background: linear-gradient(90deg, var(--coffee) 0%, var(--caput-mortuum) 100%);
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    /* Filters / Search */
+    .filter-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .search-container {
+      position: relative;
+      min-width: 280px;
+    }
+
+    .search-box {
+      padding: 0.75rem 1rem 0.75rem 3rem;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      width: 100%;
+      background-color: var(--tan);
+      color: var(--coffee);
+      transition: all 0.3s ease;
+    }
+
+    .search-box:focus {
+      outline: none;
+      border-color: var(--coffee);
+      box-shadow: 0 0 0 3px rgba(79,61,40,0.2);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--coffee);
+    }
+
+    .filter-btn {
+      border: none;
+      background-color: var(--tan);
+      color: var(--coffee);
+      padding: 0.75rem 1.25rem;
+      border-radius: 10px;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .filter-btn.active {
+      background-color: var(--coffee);
+      color: var(--tan);
+      border-color: var(--coffee);
+    }
+
+    .filter-btn:hover {
+      background-color: var(--caput-mortuum);
+      color: var(--tan);
+      transform: translateY(-2px);
+    }
+
+    /* Resource Type Tabs */
+    .resource-type-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 3rem;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+    }
+
+    .tab-btn {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--coffee);
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .tab-btn::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 3px;
+      bottom: -1rem;
+      left: 0;
+      background-color: var(--caput-mortuum);
+      transition: width 0.3s ease;
+    }
+
+    .tab-btn.active {
+      color: var(--caput-mortuum);
+    }
+
+    .tab-btn.active::after {
+      width: 100%;
+    }
+
+    .tab-btn:hover {
+      color: var(--caput-mortuum);
+    }
+
+    /* Resources Grid */
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .resource-card {
+      background-color: var(--card-color);
+      color: var(--text-light);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      border: 1px solid var(--border);
+    }
+
+    .resource-card:hover {
+      transform: translateY(-10px);
+      box-shadow: rgba(79, 61, 40, 0.25) 0px 48px 100px 0px;
+    }
+
+    .card-thumbnail {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .resource-card:hover .card-thumbnail {
+      transform: scale(1.05);
+    }
+
+    .card-content {
+      padding: 1.75rem;
+    }
+
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      font-size: 0.85rem;
+      color: var(--text-light);
+    }
+
+    .card-type {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .card-type i {
+      color: var(--caput-mortuum);
+    }
+
+    .card-title {
+      font-size: 1.35rem;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+      line-height: 1.3;
+      color: var(--tan);
+      height: 3.6rem; /* about 2 lines */
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+
+    .card-description {
+      color: var(--text-light);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .card-tag {
+      background-color: var(--caput-mortuum);
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      color: var(--tan);
+      font-weight: 500;
+    }
+
+    .difficulty {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      color: var(--tan);
+      font-weight: 600;
+      z-index: 2;
+    }
+    .difficulty.beginner {
+      background-color: var(--tan);
+      color: var(--coffee);
+    }
+    .difficulty.intermediate {
+      background-color: var(--caput-mortuum);
+    }
+    .difficulty.advanced {
+      background-color: var(--coffee);
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(5px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .modal-content {
+      background-color: var(--tan);
+      border-radius: 16px;
+      width: 90%;
+      max-width: 900px;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      box-shadow: rgba(79, 61, 40, 0.25) 0px 48px 100px 0px;
+      border: 1px solid var(--border);
+    }
+
+    .modal-header {
+      padding: 1.75rem 2rem;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      background-color: var(--tan);
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .modal-header h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--coffee);
+      flex: 1;
+      padding-right: 2rem;
+    }
+
+    .modal-body {
+      padding: 2rem;
+      color: var(--coffee);
+    }
+
+    .modal-section {
+      margin-bottom: 2rem;
+    }
+
+    .modal-section-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--caput-mortuum);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .resource-description {
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      color: var(--coffee);
+    }
+
+    .meta-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .meta-item i {
+      color: var(--caput-mortuum);
+      font-size: 1.1rem;
+      width: 20px;
+      text-align: center;
+    }
+
+    .meta-item-label {
+      font-weight: 500;
+      color: var(--coffee);
+    }
+
+    .transcript-container {
+      background-color: var(--slate-gray);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-top: 1rem;
+      max-height: 300px;
+      overflow-y: auto;
+      border: 1px solid var(--border);
+    }
+
+    .transcript {
+      white-space: pre-line;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--text-light);
+    }
+
+    .toggle-transcript {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: var(--tan);
+      border: 1px solid var(--border);
+      color: var(--coffee);
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+      margin-top: 1rem;
+      transition: all 0.2s ease;
+    }
+
+    .toggle-transcript:hover {
+      border-color: var(--caput-mortuum);
+      color: var(--caput-mortuum);
+    }
+
+    .modal-footer {
+      padding: 1.75rem 2rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+      position: sticky;
+      bottom: 0;
+      background-color: var(--tan);
+      z-index: 10;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--coffee);
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: all 0.2s ease;
+    }
+
+    .close-btn:hover {
+      background-color: var(--slate-gray);
+      color: var(--tan);
+    }
+
+    .modal-btn {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .modal-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .primary-btn {
+      background-color: var(--coffee);
+      color: var(--tan);
+    }
+
+    .primary-btn:hover {
+      background-color: var(--caput-mortuum);
+    }
+
+    .secondary-btn {
+      background-color: var(--tan);
+      color: var(--coffee);
+      border: 1px solid var(--coffee);
+    }
+
+    .secondary-btn:hover {
+      background-color: var(--slate-gray);
+      color: var(--tan);
+      border-color: var(--slate-gray);
+    }
+
+    /* Empty state */
+    .empty-state {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--coffee);
+    }
+
+    .empty-state i {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: var(--caput-mortuum);
+    }
+
+    .empty-state p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Scroll-to-top button */
+    .scroll-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: var(--coffee);
+      color: var(--tan);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: var(--card-shadow);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 99;
+    }
+
+    .scroll-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .scroll-to-top:hover {
+      background-color: var(--caput-mortuum);
+      transform: translateY(-5px);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--footer-bg); /* Malta */
+      color: var(--card-color);          /* Charcoal black text for contrast */
+      padding: 4rem 2rem;
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .footer-content p {
+      margin-bottom: 1rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .social-link {
+      color: var(--card-color);
+      font-size: 1.5rem;
+      transition: all 0.2s ease;
+    }
+
+    .social-link:hover {
+      color: var(--caput-mortuum);
+      transform: translateY(-3px);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+      }
+
+      .resources-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .meta-info {
+        grid-template-columns: 1fr;
+      }
+
+      .resource-type-tabs {
+        flex-wrap: wrap;
+      }
+    }
+
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Fade-in animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .fade-in {
+      animation: fadeIn 0.5s ease forwards;
+    }
+  </style>
+</head>
+<body>
+  <!-- We remove the theme toggle entirely -->
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode"></button>
+
+  <div class="scroll-to-top" id="scrollToTop">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <!-- No navigation bar as requested -->
+
+  <section class="hero" id="home">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>ML Resources</h1>
+      <p>
+        Curated collection of the best Machine Learning resources to accelerate
+        your learning journey
+      </p>
+
+      <div class="quote-box">
+        <div class="quote-text">
+          "The most important thing is to keep learning. It doesn't matter how
+          slowly you go as long as you don't stop."
+        </div>
+        <div class="quote-author">— Andrej Karpathy</div>
+      </div>
+
+      <div class="hero-buttons">
+        <button class="hero-button" id="exploreButton">
+          Explore Resources <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <div class="container" id="resources">
+    <div class="section-title">
+      <h2>Curated Resources</h2>
+    </div>
+
+    <div class="filter-section">
+      <div class="search-container">
+        <i class="fas fa-search search-icon"></i>
+        <input
+          type="text"
+          class="search-box"
+          id="searchInput"
+          placeholder="Search resources..."
+        />
+      </div>
+      <button class="filter-btn active" data-tag="all">All</button>
+      <button class="filter-btn" data-tag="ML">ML</button>
+      <button class="filter-btn" data-tag="NLP">NLP</button>
+      <button class="filter-btn" data-tag="Vision">Vision</button>
+      <button class="filter-btn" data-tag="Reinforcement Learning">RL</button>
+      <button class="filter-btn" data-tag="Math">Math</button>
+      <button class="filter-btn" data-tag="Deep Learning">Deep Learning</button>
+    </div>
+
+    <div class="resource-type-tabs">
+      <button class="tab-btn active" data-type="all">All Resources</button>
+      <button class="tab-btn" data-type="courses">Courses</button>
+      <button class="tab-btn" data-type="books">Books</button>
+      <button class="tab-btn" data-type="talks">Talks</button>
+      <button class="tab-btn" data-type="blogs">Blogs</button>
+    </div>
+
+    <div class="resources-grid" id="resourcesGrid">
+      <!-- Resources will be populated here via JavaScript -->
+      <div class="empty-state">
+        <i class="fas fa-spinner fa-spin"></i>
+        <p>Loading resources...</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <p>
+        ML Resources - A curated collection of the best learning materials for
+        Machine Learning and AI
+      </p>
+      <p>Created with ❤️ for the ML community</p>
+      <div class="social-links">
+        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal -->
+  <div class="modal" id="resourceModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modalTitle">Resource Title</h2>
+        <button class="close-btn" id="closeModal" aria-label="Close modal">
+          &times;
+        </button>
+      </div>
+      <div class="modal-body" id="modalBody">
+        <!-- Modal content is populated dynamically -->
+      </div>
+      <div class="modal-footer">
+        <!-- Modal footer buttons will be set dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Main JS Logic: now also fetching from data/blogs.json -->
+  <script>
+    // We'll store fetched data here
+    const sampleData = {
+      courses: [],
+      books: [],
+      talks: [],
+      blogs: []  // new property for blogs
+    };
+
+    document.addEventListener("DOMContentLoaded", function () {
+      // DOM elements
+      const resourcesGrid = document.getElementById("resourcesGrid");
+      const searchInput = document.getElementById("searchInput");
+      const filterButtons = document.querySelectorAll(".filter-btn");
+      const tabButtons = document.querySelectorAll(".tab-btn");
+      const modal = document.getElementById("resourceModal");
+      const exploreButton = document.getElementById("exploreButton");
+      const scrollToTopBtn = document.getElementById("scrollToTop");
+
+      // State
+      let activeTag = "all";
+      let activeType = "all";
+      let searchQuery = "";
+      let currentResource = null;
+
+      // First load JSON data
+      loadJsonData();
+
+      // Event listeners
+      searchInput.addEventListener("input", function () {
+        searchQuery = this.value.toLowerCase();
+        loadResources();
+      });
+
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", function () {
+          filterButtons.forEach((btn) => btn.classList.remove("active"));
+          this.classList.add("active");
+          activeTag = this.dataset.tag;
+          loadResources();
+        });
+      });
+
+      tabButtons.forEach((button) => {
+        button.addEventListener("click", function () {
+          tabButtons.forEach((btn) => btn.classList.remove("active"));
+          this.classList.add("active");
+          activeType = this.dataset.type;
+          loadResources();
+        });
+      });
+
+      document.getElementById("closeModal").addEventListener("click", function () {
+        modal.style.display = "none";
+      });
+
+      window.addEventListener("click", function (event) {
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      });
+
+      exploreButton.addEventListener("click", function () {
+        document.getElementById("resources").scrollIntoView({ behavior: "smooth" });
+      });
+
+      // Scroll to top button
+      window.addEventListener("scroll", function () {
+        if (window.pageYOffset > 300) {
+          scrollToTopBtn.classList.add("visible");
+        } else {
+          scrollToTopBtn.classList.remove("visible");
+        }
+      });
+
+      scrollToTopBtn.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      // Fetch data from JSON files (including blogs)
+      function loadJsonData() {
+        Promise.all([
+          fetch("data/courses.json").then((res) => res.json()),
+          fetch("data/books.json").then((res) => res.json()),
+          fetch("data/talks.json").then((res) => res.json()),
+          fetch("data/blogs.json").then((res) => res.json())
+        ])
+          .then(([coursesData, booksData, talksData, blogsData]) => {
+            sampleData.courses = coursesData;
+            sampleData.books = booksData;
+            sampleData.talks = talksData;
+            sampleData.blogs = blogsData;
+            loadResources();
+          })
+          .catch((error) => {
+            console.error("Error loading resource data:", error);
+            resourcesGrid.innerHTML = `
+              <div class="empty-state">
+                <i class="fas fa-exclamation-triangle"></i>
+                <p>Failed to load resources. Please try again later.</p>
+                <button class="modal-btn secondary-btn" onclick="location.reload()">Try Again</button>
+              </div>
+            `;
+          });
+      }
+
+      // Filter + sort resources from the loaded data
+      function loadResources() {
+        let allResources = [];
+
+        if (activeType === "all" || activeType === "courses") {
+          allResources = allResources.concat(
+            sampleData.courses.map((c) => ({ ...c, type: "course" }))
+          );
+        }
+        if (activeType === "all" || activeType === "books") {
+          allResources = allResources.concat(
+            sampleData.books.map((b) => ({ ...b, type: "book" }))
+          );
+        }
+        if (activeType === "all" || activeType === "talks") {
+          allResources = allResources.concat(
+            sampleData.talks.map((t) => ({ ...t, type: "talk" }))
+          );
+        }
+        if (activeType === "all" || activeType === "blogs") {
+          allResources = allResources.concat(
+            sampleData.blogs.map((b) => ({ ...b, type: "blog" }))
+          );
+        }
+
+        // Apply tag filter
+        let filteredResources = allResources;
+        if (activeTag !== "all") {
+          filteredResources = filteredResources.filter(
+            (res) => res.tags && res.tags.includes(activeTag)
+          );
+        }
+
+        // Apply search
+        if (searchQuery) {
+          filteredResources = filteredResources.filter(
+            (res) =>
+              res.title.toLowerCase().includes(searchQuery) ||
+              res.description.toLowerCase().includes(searchQuery) ||
+              (res.tags &&
+                res.tags.some((tag) => tag.toLowerCase().includes(searchQuery)))
+          );
+        }
+
+        // Sort by date added (newest first)
+        filteredResources.sort((a, b) => new Date(b.dateAdded) - new Date(a.dateAdded));
+
+        renderResources(filteredResources);
+      }
+
+      // Renders the cards
+      function renderResources(resources) {
+        if (resources.length === 0) {
+          resourcesGrid.innerHTML = `
+            <div class="empty-state">
+              <i class="fas fa-search"></i>
+              <p>No resources found. Try adjusting your filters.</p>
+            </div>
+          `;
+          return;
+        }
+
+        resourcesGrid.innerHTML = "";
+
+        resources.forEach((resource, index) => {
+          const card = document.createElement("div");
+          card.className = "resource-card fade-in";
+          card.style.animationDelay = `${index * 0.05}s`;
+          card.setAttribute("data-id", resource.id);
+          card.setAttribute("data-type", resource.type);
+
+          // Icon + label
+          let typeIcon = "";
+          let typeLabel = "";
+          switch (resource.type) {
+            case "course":
+              typeIcon = "fa-graduation-cap";
+              typeLabel = "Course";
+              break;
+            case "book":
+              typeIcon = "fa-book";
+              typeLabel = "Book";
+              break;
+            case "talk":
+              typeIcon = "fa-microphone-alt";
+              typeLabel = "Talk";
+              break;
+            case "blog":
+              typeIcon = "fa-rss";
+              typeLabel = "Blog";
+              break;
+          }
+
+          // Tags
+          let tagsHtml = "";
+          if (resource.tags && resource.tags.length > 0) {
+            tagsHtml = `
+              <div class="card-tags">
+                ${resource.tags
+                  .slice(0, 3)
+                  .map((tag) => `<span class="card-tag">${tag}</span>`)
+                  .join("")}
+                ${
+                  resource.tags.length > 3
+                    ? `<span class="card-tag">+${resource.tags.length - 3}</span>`
+                    : ""
+                }
+              </div>
+            `;
+          }
+
+          // Only show difficulty if resource type is course or book
+          let difficultyHtml = "";
+          if ((resource.type === "course" || resource.type === "book") && resource.difficulty) {
+            let diffClass = "intermediate";
+            if (resource.difficulty === "Beginner") diffClass = "beginner";
+            if (resource.difficulty === "Advanced") diffClass = "advanced";
+            difficultyHtml = `<div class="difficulty ${diffClass}">${resource.difficulty}</div>`;
+          }
+
+          // Card inner HTML
+          card.innerHTML = `
+            <img src="${resource.thumbnail}" alt="${resource.title}" class="card-thumbnail">
+            <div class="card-content">
+              <div class="card-meta">
+                <div class="card-type">
+                  <i class="fas ${typeIcon}"></i> ${typeLabel}
+                </div>
+                <div>
+                  ${new Date(resource.dateAdded).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "short",
+                  })}
+                </div>
+              </div>
+              <h3 class="card-title">${resource.title}</h3>
+              <p class="card-description">${resource.description}</p>
+              ${tagsHtml}
+            </div>
+            ${difficultyHtml}
+          `;
+
+          // On click, show modal
+          card.addEventListener("click", function () {
+            showResourceDetails(resource);
+          });
+
+          resourcesGrid.appendChild(card);
+        });
+      }
+
+      // Shows the modal with resource details
+      function showResourceDetails(resource) {
+        currentResource = resource;
+
+        const modalTitle = document.getElementById("modalTitle");
+        const modalBody = document.getElementById("modalBody");
+        const modalFooter = document.querySelector(".modal-footer");
+
+        modalTitle.textContent = resource.title;
+
+        let metaInfo = "";
+        let specialSections = "";
+
+        // Resource description
+        let descriptionHtml = `
+          <div class="modal-section">
+            <p class="resource-description">
+              ${resource.longDescription || resource.description}
+            </p>
+          </div>
+        `;
+
+        // Resource type-specific metadata
+        metaInfo += `<div class="modal-section">`;
+
+        if (resource.type === "course") {
+          metaInfo += `
+            <div class="modal-section-title"><i class="fas fa-info-circle"></i> Course Details</div>
+            <div class="meta-info">
+              <div class="meta-item">
+                <i class="fas fa-user"></i>
+                <div>
+                  <div class="meta-item-label">Instructor</div>
+                  <div>${resource.instructor || "N/A"}</div>
+                </div>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-university"></i>
+                <div>
+                  <div class="meta-item-label">Institution</div>
+                  <div>${resource.university || "N/A"}</div>
+                </div>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-clock"></i>
+                <div>
+                  <div class="meta-item-label">Duration</div>
+                  <div>${resource.duration || "N/A"}</div>
+                </div>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-tag"></i>
+                <div>
+                  <div class="meta-item-label">Pricing</div>
+                  <div>${resource.free ? "Free" : "Paid"}</div>
+                </div>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-graduation-cap"></i>
+                <div>
+                  <div class="meta-item-label">Prerequisites</div>
+                  <div>${resource.prerequisite || "N/A"}</div>
+                </div>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-certificate"></i>
+                <div>
+                  <div class="meta-item-label">Certification</div>
+                  <div>${resource.certification ? "Available" : "Not available"}</div>
+                </div>
+              </div>
+            </div>
+          `;
+        } else if (resource.type === "book") {
+          metaInfo += `
+            <div class="modal-section-title"><i class="fas fa-info-circle"></i> Book Details</div>
+            <div class="meta-info">
+              <div class="meta-item">
+                <i class="fas fa-user"></i>
+                <div>
+                  <div class="meta-item-label">Authors</div>
+                  <div>${resource.authors ? resource.authors.join(", ") : "N/A"}</div>
+                </div>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-building"></i>
+                <div>
+                  <div class="meta-item-label">Publisher</div>
+                  <div>${resource.publisher || "N/A"}</div>
+                </div>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-calendar"></i>
+                <div>
+                  <div class="meta-item-label">Year</div>
+                  <div>${resource.year || "N/A"}</div>
+                </div>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-file-alt"></i>
+                <div>
+                  <div class="meta-item-label">Pages</div>
+                  <div>${resource.pages || "N/A"}</div>
+                </div>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-barcode"></i>
+                <div>
+                  <div class="meta-item-label">ISBN</div>
+                  <div>${resource.isbn || "N/A"}</div>
+                </div>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-layer-group"></i>
+                <div>
+                  <div class="meta-item-label">Level</div>
+                  <div>${resource.level || "N/A"}</div>
+                </div>
+              </div>
+            </div>
+          `;
+        } else if (resource.type === "talk") {
+          metaInfo += `
+            <div class="modal-section-title"><i class="fas fa-info-circle"></i> Talk Details</div>
+            <div class="meta-info">
+              <div class="meta-item">
+                <i class="fas fa-user"></i>
+                <div>
+                  <div class="meta-item-label">Speakers</div>
+                  <div>${resource.speakers ? resource.speakers.join(", ") : "N/A"}</div>
+                </div>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-microphone-alt"></i>
+                <div>
+                  <div class="meta-item-label">Event</div>
+                  <div>${resource.event || "N/A"}</div>
+                </div>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-calendar"></i>
+                <div>
+                  <div class="meta-item-label">Date</div>
+                  <div>${resource.date ? new Date(resource.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }) : "N/A"}</div>
+                </div>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-clock"></i>
+                <div>
+                  <div class="meta-item-label">Duration</div>
+                  <div>${resource.duration || "N/A"}</div>
+                </div>
+              </div>
+            </div>
+          `;
+
+          if (resource.transcript) {
+            specialSections += `
+              <div class="modal-section">
+                <div class="modal-section-title">
+                  <i class="fas fa-file-alt"></i> Transcript
+                </div>
+                <button class="toggle-transcript" id="toggleTranscript">
+                  <i class="fas fa-eye"></i> Show Transcript
+                </button>
+                <div class="transcript-container" id="transcriptContainer" style="display: none;">
+                  <div class="transcript">${resource.transcript}</div>
+                </div>
+              </div>
+            `;
+          }
+          if (resource.slides) {
+            specialSections += `
+              <div class="modal-section">
+                <a href="${resource.slides}" target="_blank"
+                   class="modal-btn primary-btn"
+                   style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                  <i class="fas fa-file-powerpoint"></i> View Slides
+                </a>
+              </div>
+            `;
+          }
+        } else if (resource.type === "blog") {
+          metaInfo += `
+            <div class="modal-section-title"><i class="fas fa-info-circle"></i> Blog Details</div>
+            <div class="meta-info">
+              <div class="meta-item">
+                <i class="fas fa-user"></i>
+                <div>
+                  <div class="meta-item-label">Author(s)</div>
+                  <div>${resource.authors ? resource.authors.join(", ") : "N/A"}</div>
+                </div>
+              </div>
+            </div>
+          `;
+        }
+
+        metaInfo += `</div>`;
+
+        let tagsHtml = "";
+        if (resource.tags) {
+          tagsHtml = `
+            <div class="modal-section">
+              <div class="modal-section-title"><i class="fas fa-tags"></i> Topics</div>
+              <div class="card-tags">
+                ${resource.tags.map((tag) => `<span class="card-tag">${tag}</span>`).join("")}
+              </div>
+            </div>
+          `;
+        }
+
+        modalBody.innerHTML = descriptionHtml + metaInfo + specialSections + tagsHtml;
+
+        // Dynamically build modal footer
+        // For courses, if resource.youtube exists, add a "Watch on YouTube" button
+        if (resource.type === "course" && resource.youtube) {
+          modalFooter.innerHTML = `
+            <button class="modal-btn secondary-btn" id="closeModalBtn">Close</button>
+            <button class="modal-btn primary-btn" id="visitResourceBtn">Visit Homepage</button>
+            <button class="modal-btn primary-btn" id="youtubeResourceBtn">Watch on YouTube</button>
+          `;
+        } else {
+          modalFooter.innerHTML = `
+            <button class="modal-btn secondary-btn" id="closeModalBtn">Close</button>
+            <button class="modal-btn primary-btn" id="visitResourceBtn">Visit Resource</button>
+          `;
+        }
+
+        // Attach new event listeners for the dynamically generated buttons
+        document.getElementById("closeModalBtn").addEventListener("click", function () {
+          modal.style.display = "none";
+        });
+        document.getElementById("visitResourceBtn").addEventListener("click", function () {
+          if (currentResource && currentResource.url) {
+            window.open(currentResource.url, "_blank");
+          }
+        });
+        if (resource.type === "course" && resource.youtube) {
+          document.getElementById("youtubeResourceBtn").addEventListener("click", function () {
+            window.open(resource.youtube, "_blank");
+          });
+        }
+
+        // Transcript toggle
+        const toggleTranscriptBtn = document.getElementById("toggleTranscript");
+        if (toggleTranscriptBtn) {
+          const transcriptContainer = document.getElementById("transcriptContainer");
+          toggleTranscriptBtn.addEventListener("click", function () {
+            const isVisible = transcriptContainer.style.display !== "none";
+            transcriptContainer.style.display = isVisible ? "none" : "block";
+            this.innerHTML = isVisible
+              ? '<i class="fas fa-eye"></i> Show Transcript'
+              : '<i class="fas fa-eye-slash"></i> Hide Transcript';
+          });
+        }
+
+        modal.style.display = "flex";
+      }
+    });
+  </script>
+</body>
+</html>

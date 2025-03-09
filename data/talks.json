@@ -1,0 +1,47 @@
+[
+  {
+    "id": "talk1",
+    "title": "The Parable of the Parser",
+    "description": "Ross Girshick talk critiques legacy paradigms in NLP and computer vision, advocating for a shift toward real-world, open-ended AI tasks like VQA and embodied vision.",
+    "longDescription": "The Parable of the Parser by Ross Girshick, is a reflective talk from CVPR 2024 that discusses the evolution of NLP and computer vision. It examines the shift from classical parsing-based approaches in NLP to the dominance of LLMs, emphasizing that text generation has become the primary goal. The talk draws parallels to computer vision, questioning what the equivalent of parsers are in CV and advocating for a shift toward real-world, open-ended visual tasks such as visual question answering (VQA) and embodied vision.",
+    "url": "https://drive.google.com/file/d/1VodGljuEhBKwZIXQwN-ApH6g2wBAVAdK/view",
+    "thumbnail": "https://www.rossgirshick.info/images/rbg-small.jpg",
+    "speakers": ["Ross Girshick"],
+    "event": "CVPR 2024",
+    "dateAdded": "2025-03-08",
+    "duration": null,
+    "slides": "https://drive.google.com/file/d/1VodGljuEhBKwZIXQwN-ApH6g2wBAVAdK/view",
+    "tags": ["ML", "Vision", "NLP", "Multimodal"],
+    "difficulty": "Beginner"
+  },
+  {
+    "id": "talk2",
+    "title": "State of GPT",
+    "description": "Andrej Karpathy discusses the training pipeline of GPT assistants, from tokenization to pretraining, supervised finetuning, and Reinforcement Learning from Human Feedback (RLHF).",
+    "longDescription": "In this talk, Andrej Karpathy provides insights into the rapidly evolving ecosystem of large language models. He explains the four major stages of training GPT assistants: pretraining, supervised finetuning, reward modeling, and reinforcement learning. The presentation also covers practical techniques for using these models effectively, including prompting strategies and the future extensions of the GPT ecosystem.",
+    "url": "https://www.youtube.com/watch?v=xO73EUwSegU",
+    "thumbnail": "https://i.ytimg.com/vi/bZQun8Y4L2A/maxresdefault.jpg",
+    "speakers": ["Andrej Karpathy"],
+    "event": "Microsoft Build 2023",
+    "dateAdded": "2023-05-24",
+    "duration": "Approx. 1 hour",
+    "slides": "https://cdn.public-pdf.com/28f49ed64417b384c115ac6db1f5b07d.pdf",
+    "tags": ["GPT", "Large Language Models", "RLHF", "NLP"],
+    "difficulty": "Intermediate"
+  },  
+  {
+    "id": "talk3",
+    "title": "Agents for Software Development",
+    "description": "Graham Neubig discusses the role of AI agents in software development, focusing on their potential to automate tasks like code generation and bug fixing.",
+    "longDescription": "In this talk, Graham Neubig explores the capabilities and challenges of using AI agents for software development. He highlights how agents can assist in tasks such as coding, bug fixing, and testing, leveraging large language models (LLMs) to generate code and interact with software environments. Neubig also addresses key challenges like file localization, planning, error recovery, and safety, emphasizing the importance of open-source tools like OpenHands for advancing agent capabilities.",
+    "url": "https://www.youtube.com/watch?v=f9L9Fkq-8K4",
+    "thumbnail": "https://d2xo500swnpgl1.cloudfront.net/uploads/mlops/Graham-Neubig-1--62f91df1-568a-4ad7-939e-41ce8717f149-1730835833650.png",
+    "speakers": ["Graham Neubig"],
+    "event": "Berkeley RDI Center on Decentralization & AI",
+    "dateAdded": "2024-10-15",
+    "duration": "Approx. 1 hour",
+    "slides": "https://www.phontron.com/slides/neubig24softwareagents.pdf",
+    "tags": ["Software Development", "AI Agents", "LLMs", "Coding"],
+    "difficulty": "Intermediate"
+  }
+]

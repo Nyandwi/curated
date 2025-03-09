@@ -1,0 +1,27 @@
+[
+    {
+      "id": "blog1",
+      "title": "Distill",
+      "description": "A modern medium for presenting research in ML with clarity and visualizations.",
+      "longDescription": "Distill is dedicated to clear explanations of machine learning. By combining interactive diagrams, thoughtful design, and a strong emphasis on clarity, Distill is an excellent resource for those who want to dive deep into ML concepts. The articles often cover cutting-edge research, but are presented in a more accessible, intuitive format.",
+      "url": "https://distill.pub/",
+      "thumbnail": "https://distill.pub/2021/multimodal-neurons/thumbnail.jpg",
+      "authors": ["Chris Olah", "Shan Carter", "Others"],
+      "tags": ["ML", "Deep Learning", "Research"],
+      "difficulty": "Intermediate",
+      "dateAdded": "2023-02-01"
+    },
+    {
+      "id": "blog2",
+      "title": "Andrej Karpathy's Blog",
+      "description": "Personal blog by Andrej Karpathy, covering deep learning, AI, and more.",
+      "longDescription": "Andrej Karpathy, a prominent figure in the deep learning community, writes about neural networks, AI trends, self-driving cars, and occasionally personal reflections on technology. His blog offers insights into both the technical and philosophical aspects of AI development.",
+      "url": "http://karpathy.github.io/",
+      "thumbnail": "https://distill.pub/2019/activation-atlas/thumbnail.jpg",
+      "authors": ["Andrej Karpathy"],
+      "tags": ["ML", "Deep Learning"],
+      "difficulty": "Advanced",
+      "dateAdded": "2023-03-05"
+    }
+  ]
+  
