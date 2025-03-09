@@ -30,7 +30,7 @@
     "dateAdded": "2023-12-05"
   },  
   {
-    "id": "book2",
+    "id": "book0",
     "title": "Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow",
     "description": "A practical guide to machine learning with Python and its libraries.",
     "longDescription": "Through a series of recent breakthroughs, deep learning has boosted the entire field of machine learning. Now, even programmers who know close to nothing about this technology can use simple, efficient tools to implement programs capable of learning from data. This book might get less attention perhaps due to using TensorFlow but it is one of the best practical books on machine learning in general.",
@@ -138,5 +138,5 @@
     "tags": ["Computer Vision", "Image Processing", "Machine Learning"],
     "difficulty": "Intermediate to Advanced",
     "dateAdded": "2010-08-01"
-  }  
+  }
 ]

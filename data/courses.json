@@ -206,13 +206,13 @@
     "thumbnail": "https://i.ytimg.com/vi/TCCjZe0y4Qc/hq720.jpg?sqp=-oaymwEXCK4FEIIDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLBNq7HDY71xIjzx1pY6WKvHIqtsBw",
     "instructor": "Many instructors",
     "university": "DeepMind & University College London",
-    "dateAdded": "2024-08-19",
+    "dateAdded": "2025-03-09",
     "duration": "Self-paced",
     "prerequisite": "Probability, calculus, linear algebra, and introductory machine learning",
     "certification": false,
     "free": true,
-    "tags": ["RL", "DL"],
-    "difficulty": "Intermediate to Advanced",
+    "tags": ["DL", "RL"],
+    "difficulty": "Advanced",
     "youtube": "https://www.youtube.com/watch?v=TCCjZe0y4Qc"
-  }  
+  }
 ]
