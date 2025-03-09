@@ -1262,6 +1262,7 @@
               </div>
             </div>
           `;
+        // Inside showResourceDetails, within the talk branch:
         } else if (resource.type === "talk") {
           metaInfo += `
             <div class="modal-section-title"><i class="fas fa-info-circle"></i> Talk Details</div>
@@ -1297,6 +1298,7 @@
             </div>
           `;
 
+          // Add transcript section if available
           if (resource.transcript) {
             specialSections += `
               <div class="modal-section">
@@ -1312,13 +1314,26 @@
               </div>
             `;
           }
+          // Add slides button if available
           if (resource.slides) {
             specialSections += `
               <div class="modal-section">
                 <a href="${resource.slides}" target="_blank"
-                   class="modal-btn primary-btn"
-                   style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                  class="modal-btn primary-btn"
+                  style="display: inline-flex; align-items: center; gap: 0.5rem;">
                   <i class="fas fa-file-powerpoint"></i> View Slides
+                </a>
+              </div>
+            `;
+          }
+          // NEW: Add video button if available
+          if (resource.video) {
+            specialSections += `
+              <div class="modal-section">
+                <a href="${resource.video}" target="_blank"
+                  class="modal-btn primary-btn"
+                  style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                  <i class="fas fa-video"></i> Watch Video
                 </a>
               </div>
             `;
