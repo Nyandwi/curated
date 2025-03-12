@@ -27,7 +27,7 @@
     "dateAdded": "2023-05-24",
     "duration": "Approx. 1 hour",
     "slides": "https://cdn.public-pdf.com/28f49ed64417b384c115ac6db1f5b07d.pdf",
-    "tags": ["GPT", "Large Language Models", "RLHF", "NLP"],
+    "tags": ["GPT", "Large Language Models", "RL", "NLP"],
     "difficulty": "Intermediate"
   },  
   {
@@ -36,6 +36,7 @@
     "description": "Graham Neubig discusses the role of AI agents in software development, focusing on their potential to automate tasks like code generation and bug fixing.",
     "longDescription": "In this talk, Graham Neubig explores the capabilities and challenges of using AI agents for software development. He highlights how agents can assist in tasks such as coding, bug fixing, and testing, leveraging large language models (LLMs) to generate code and interact with software environments. Neubig also addresses key challenges like file localization, planning, error recovery, and safety, emphasizing the importance of open-source tools like OpenHands for advancing agent capabilities.",
     "url": "https://www.youtube.com/watch?v=f9L9Fkq-8K4",
+    "video": "https://www.youtube.com/watch?v=f9L9Fkq-8K4",
     "thumbnail": "https://d2xo500swnpgl1.cloudfront.net/uploads/mlops/Graham-Neubig-1--62f91df1-568a-4ad7-939e-41ce8717f149-1730835833650.png",
     "speakers": ["Graham Neubig"],
     "event": "Berkeley RDI Center on Decentralization & AI",
@@ -44,5 +45,21 @@
     "slides": "https://www.phontron.com/slides/neubig24softwareagents.pdf",
     "tags": ["Software Development", "AI Agents", "LLMs", "Coding"],
     "difficulty": "Intermediate"
-  }
+  },
+  {
+    "id": "talk4",
+    "title": "Deep Residual Learning and How It Shaped the AI Landscape",
+    "description": "Dr. Kaiming He discusses the impact of deep residual learning on the AI landscape, highlighting its role in enabling deeper neural networks.",
+    "longDescription": "In this lecture, Dr. He shares insights into how deep residual learning has revolutionized artificial intelligence by allowing neural networks to achieve unprecedented depths. He explains how this innovation has led to significant breakthroughs in various AI applications, including AlphaGo, AlphaFold, and ChatGPT. The talk emphasizes the foundational role of deep residual learning in modern AI advancements. He starts at 19:22.",
+    "url": "https://www.cuhk.edu.hk/ie/2023-future-science-prize-laureates-lecture/",
+    "thumbnail": "https://mitibmwatsonailab.mit.edu/wp-content/uploads/2024/05/me2023.jpg",
+    "speakers": ["Kaiming He"],
+    "event": "2023 Future Science Prize Laureate Lecture",
+    "dateAdded": "2025-03-11",
+    "duration": "Approx. 1 hour",
+    "slides": null,
+    "tags": ["Deep Residual Learning", "AI", "Neural Networks"],
+    "difficulty": "Intermediate to Advanced",
+    "video": "https://www.youtube.com/watch?v=jEeL5Gf4vkk"
+  }  
 ]
