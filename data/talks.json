@@ -61,5 +61,21 @@
     "tags": ["Deep Residual Learning", "AI", "Neural Networks"],
     "difficulty": "Intermediate to Advanced",
     "video": "https://www.youtube.com/watch?v=jEeL5Gf4vkk"
-  }  
+  },
+  {
+    "id": "talk5",
+    "title": "You and Your Research",
+    "description": "Richard Hamming discusses the traits and habits necessary for conducting great research, focusing on drive, emotional commitment, and strategic effort.",
+    "longDescription": "In this talk, Hamming explores why some scientists achieve significant contributions while others do not. He emphasizes the importance of drive, emotional commitment to one's work, and strategic effort. Hamming notes that luck plays a role but is not the primary factor; rather, being prepared and seizing opportunities is crucial. He also highlights the need to ask important questions, work on significant problems, and maintain a balance between confidence and doubt to foster creativity and progress.",
+    "url": "https://www.cs.virginia.edu/~robins/YouAndYourResearch.html",
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/en/0/08/Richard_Hamming.jpg",
+    "speakers": ["Richard W. Hamming"],
+    "event": "Bell Communications Research Colloquia Series",
+    "dateAdded": "1986-03-07",
+    "duration": "Approx. 1 hour",
+    "slides": null,
+    "tags": ["Research Strategies", "Productivity", "Science"],
+    "difficulty": "Beginner to Intermediate",
+    "video": "https://www.youtube.com/watch?v=a1zDuOPkMSw"
+  }
 ]
