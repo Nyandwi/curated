@@ -77,5 +77,37 @@
     "tags": ["Research Strategies", "Productivity", "Science"],
     "difficulty": "Beginner to Intermediate",
     "video": "https://www.youtube.com/watch?v=a1zDuOPkMSw"
+  },
+  {
+    "id": "talk6",
+    "title": "Learning to Reason with LLMs",
+    "description": "This video is a presentation titled \"Learning to Reason with LLMs,\" given at a Simons Institute event, featuring Noam Brown from OpenAI.",
+    "longDescription": "Naom Brown discusses his background in AI, particularly his work on poker-playing AI, and then delves into the development and implications of the 01 model from OpenAI. Key points include the impact of search/planning in AI game playing (poker, Go), the introduction of the 01 model which scales inference compute using reinforcement learning to refine its \"chain of thought\", allowing for error correction and better problem-solving. Brown suggests this approach opens new avenues for AI progress beyond pre-training costs and mentions a new focus on multi-agent reasoning at OpenAI.",
+    "url": "https://simons.berkeley.edu/talks/noam-brown-openai-2024-09-26",
+    "thumbnail": "https://noambrown.github.io/assets/img/profile1.jpg",
+    "speakers": ["Noam Brown"],
+    "event": "Simons Institute",
+    "dateAdded": "2024-10-15",
+    "duration": "Approx. 52 minutes",
+    "slides": "https://simons.berkeley.edu/sites/default/files/2024-11/LLM24-1%20Slides%20-%20Noam%20Brown.pdf",
+    "tags": ["AI", "LLM", "Reasoning", "Reinforcement Learning", "OpenAI", "Simons Institute"],
+    "difficulty": null,
+    "video": "http://www.youtube.com/watch?v=Gr_eYXdHFis"
+  },
+  {
+    "id": "39006545",
+    "title": "Keynote IV: Teaching LLMs to Reason",
+    "description": "What is required to make LLMs useful scientific assistants? In this talk we cover how LLMs perform on scientific reasoning tasks, including some recent results.",
+    "longDescription": "What is required to make LLMs useful scientific assistants? In this talk we cover how LLMs perform on scientific reasoning tasks, including some recent results.",
+    "url": "https://ml4astro.github.io/icml2023/",
+    "thumbnail": "https://media.licdn.com/dms/image/C4D03AQEg_5vt4T63tg/profile-displayphoto-shrink_200_200/0/1630012012341?e=2147483647&v=beta&t=p2uBKhlZW2Ff4y1niikmxbb_U3Z1aFEV97la-vrjf2I",
+    "speakers": ["Ross Taylor"],
+    "event": "2nd ICML Workshop on Machine Learning for Astrophysics (ICML 2023)",
+    "dateAdded": "2023-07-29",
+    "duration": null,
+    "slides": null,
+    "tags": ["LLM", "Reasoning", "AI", "Science", "Astrophysics", "Machine Learning", "ICML 2023", "Keynote"],
+    "difficulty": null,
+    "video": "https://slideslive.com/39006545/teaching-llms-to-reason"
   }
 ]
