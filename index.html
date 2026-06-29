@@ -1225,11 +1225,16 @@
             ? new Date(resource.dateAdded).toLocaleDateString("en-US", { year: "numeric", month: "short" })
             : "";
 
+          // Only render the <img> when a thumbnail is provided; otherwise the
+          // gradient + icon fallback behind it shows through cleanly.
+          const imgHtml = resource.thumbnail
+            ? `<img src="${resource.thumbnail}" alt="${resource.title}" class="card-thumbnail" loading="lazy" onerror="this.style.display='none'">`
+            : "";
+
           card.innerHTML = `
             <div class="card-media">
               <div class="media-fallback"><i class="fas ${meta.icon}"></i></div>
-              <img src="${resource.thumbnail}" alt="${resource.title}" class="card-thumbnail"
-                   loading="lazy" onerror="this.style.display='none'">
+              ${imgHtml}
               <span class="card-badge-type"><i class="fas ${meta.icon}"></i> ${meta.label}</span>
               ${difficultyHtml}
             </div>
