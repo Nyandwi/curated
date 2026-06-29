@@ -6,7 +6,7 @@
   <title>ML Curated | Learning Resources</title>
   <link
     rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
   />
   <style>
     /*
@@ -99,11 +99,10 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: url('https://api.placeholder.com/1920/1080?text=');
-      background-size: cover;
-      background-position: center;
-      opacity: 0.2;
-      mix-blend-mode: overlay;
+      background-image: radial-gradient(rgba(79, 61, 40, 0.18) 1px, transparent 1px);
+      background-size: 22px 22px;
+      opacity: 0.6;
+      pointer-events: none;
     }
 
     .hero-content {
@@ -256,26 +255,28 @@
     }
 
     .filter-btn {
-      border: none;
-      background-color: var(--tan);
+      border: 1px solid rgba(79, 61, 40, 0.25);
+      background-color: rgba(255, 255, 255, 0.25);
       color: var(--coffee);
-      padding: 0.75rem 1.25rem;
-      border-radius: 10px;
+      padding: 0.55rem 1.1rem;
+      border-radius: 999px;
       cursor: pointer;
-      border: 1px solid var(--border);
-      transition: all 0.3s ease;
-      font-weight: 500;
+      transition: all 0.25s ease;
+      font-weight: 600;
+      font-size: 0.9rem;
     }
 
     .filter-btn.active {
       background-color: var(--coffee);
       color: var(--tan);
       border-color: var(--coffee);
+      box-shadow: var(--btn-shadow);
     }
 
     .filter-btn:hover {
       background-color: var(--caput-mortuum);
       color: var(--tan);
+      border-color: var(--caput-mortuum);
       transform: translateY(-2px);
     }
 
@@ -325,11 +326,24 @@
       color: var(--caput-mortuum);
     }
 
+    /* Results count */
+    .results-count {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--coffee);
+      font-size: 0.95rem;
+      font-weight: 500;
+      opacity: 0.8;
+    }
+    .results-count strong {
+      color: var(--caput-mortuum);
+    }
+
     /* Resources Grid */
     .resources-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 2.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
       margin-bottom: 4rem;
     }
 
@@ -339,100 +353,162 @@
       border-radius: 16px;
       overflow: hidden;
       box-shadow: var(--card-shadow);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
       cursor: pointer;
       position: relative;
-      border: 1px solid var(--border);
+      border: 1px solid rgba(216, 182, 147, 0.12);
+      display: flex;
+      flex-direction: column;
     }
 
     .resource-card:hover {
-      transform: translateY(-10px);
-      box-shadow: rgba(79, 61, 40, 0.25) 0px 48px 100px 0px;
+      transform: translateY(-8px);
+      box-shadow: rgba(37, 52, 79, 0.35) 0px 24px 50px -12px;
+      border-color: rgba(216, 182, 147, 0.3);
+    }
+
+    /* Media area (image + overlays + graceful fallback) */
+    .card-media {
+      position: relative;
+      height: 170px;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--coffee) 0%, var(--card-color) 100%);
+    }
+
+    .media-fallback {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: rgba(216, 182, 147, 0.35);
     }
 
     .card-thumbnail {
+      position: relative;
       width: 100%;
-      height: 180px;
+      height: 100%;
       object-fit: cover;
       transition: transform 0.5s ease;
-      border-bottom: 1px solid var(--border);
+      display: block;
     }
 
     .resource-card:hover .card-thumbnail {
-      transform: scale(1.05);
+      transform: scale(1.06);
     }
+
+    /* Gradient scrim so badges stay legible over any image */
+    .card-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(37,52,79,0.45) 0%, rgba(37,52,79,0) 35%);
+      pointer-events: none;
+    }
+
+    .card-badge-type {
+      position: absolute;
+      top: 0.75rem;
+      left: 0.75rem;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--tan);
+      background-color: rgba(37, 52, 79, 0.78);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(216, 182, 147, 0.2);
+    }
+    .card-badge-type i { color: var(--tan); }
 
     .card-content {
-      padding: 1.75rem;
-    }
-
-    .card-meta {
+      padding: 1.5rem;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1rem;
-      font-size: 0.85rem;
-      color: var(--text-light);
-    }
-
-    .card-type {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .card-type i {
-      color: var(--caput-mortuum);
+      flex-direction: column;
+      flex: 1;
     }
 
     .card-title {
-      font-size: 1.35rem;
-      margin-bottom: 0.75rem;
-      font-weight: 600;
+      font-size: 1.2rem;
+      margin-bottom: 0.4rem;
+      font-weight: 700;
       line-height: 1.3;
       color: var(--tan);
-      height: 3.6rem; /* about 2 lines */
-      overflow: hidden;
       display: -webkit-box;
       -webkit-line-clamp: 2;
+      line-clamp: 2;
       -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .card-source {
+      font-size: 0.82rem;
+      color: rgba(216, 182, 147, 0.7);
+      margin-bottom: 0.85rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
 
     .card-description {
-      color: var(--text-light);
-      font-size: 0.95rem;
-      margin-bottom: 1.5rem;
+      color: rgba(216, 182, 147, 0.82);
+      font-size: 0.9rem;
+      line-height: 1.55;
+      margin-bottom: 1.25rem;
       display: -webkit-box;
       -webkit-line-clamp: 3;
+      line-clamp: 3;
       -webkit-box-orient: vertical;
       overflow: hidden;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-top: auto;
     }
 
     .card-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 0.4rem;
     }
 
     .card-tag {
-      background-color: var(--caput-mortuum);
-      padding: 0.3rem 0.6rem;
-      border-radius: 6px;
-      font-size: 0.75rem;
+      background-color: rgba(99, 2, 10, 0.85);
+      padding: 0.28rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
       color: var(--tan);
       font-weight: 500;
+    }
+
+    .card-date {
+      font-size: 0.75rem;
+      color: rgba(216, 182, 147, 0.55);
+      white-space: nowrap;
     }
 
     .difficulty {
       position: absolute;
       top: 0.75rem;
       right: 0.75rem;
-      padding: 0.3rem 0.6rem;
-      border-radius: 6px;
-      font-size: 0.75rem;
-      color: var(--tan);
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
       font-weight: 600;
       z-index: 2;
+      border: 1px solid rgba(255, 255, 255, 0.15);
     }
     .difficulty.beginner {
       background-color: var(--tan);
@@ -440,9 +516,11 @@
     }
     .difficulty.intermediate {
       background-color: var(--caput-mortuum);
+      color: var(--tan);
     }
     .difficulty.advanced {
       background-color: var(--coffee);
+      color: var(--tan);
     }
 
     /* Modal */
@@ -842,6 +920,8 @@
       <button class="tab-btn" data-type="blogs">Blogs</button>
     </div>
 
+    <div class="results-count" id="resultsCount"></div>
+
     <div class="resources-grid" id="resourcesGrid">
       <!-- Resources will be populated here via JavaScript -->
       <div class="empty-state">
@@ -858,9 +938,10 @@
       </p>
       <p>Curated with ❤️ for the AI community</p>
       <div class="social-links">
-        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/Nyandwi" target="_blank" rel="noopener" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://x.com/Jeande_d" target="_blank" rel="noopener" class="social-link" aria-label="X / Twitter"><i class="fab fa-x-twitter"></i></a>
+        <a href="https://www.linkedin.com/in/nyandwi" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://nyandwi.com" target="_blank" rel="noopener" class="social-link" aria-label="Personal website"><i class="fas fa-globe"></i></a>
       </div>
     </div>
   </footer>
@@ -892,6 +973,48 @@
       talks: [],
       blogs: []  // new property for blogs
     };
+
+    // Map each topic filter to the variety of tag names used across the data,
+    // so filters work even when entries use verbose tags (e.g. "Deep Learning"
+    // should match the "DL" chip). Matching is case-insensitive.
+    const TAG_ALIASES = {
+      ML: ["ml", "machine learning"],
+      NLP: ["nlp", "natural language processing", "llm", "llms", "large language models",
+            "language models", "gpt", "generative ai"],
+      Vision: ["vision", "computer vision", "image processing"],
+      Multimodal: ["multimodal", "multimodal machine learning", "multimodal ml"],
+      RL: ["rl", "reinforcement learning"],
+      Math: ["math", "mathematics", "linear algebra", "calculus", "probability", "statistics"],
+      DL: ["dl", "deep learning", "neural networks", "deep neural networks"]
+    };
+
+    // True if a resource belongs to the given topic category.
+    function matchesCategory(resource, category) {
+      if (category === "all") return true;
+      if (!resource.tags) return false;
+      const aliases = TAG_ALIASES[category] || [category.toLowerCase()];
+      return resource.tags.some((tag) => aliases.includes(tag.toLowerCase()));
+    }
+
+    // Short "source" subtitle shown on each card (instructor / authors / speakers).
+    function getCardSource(resource) {
+      switch (resource.type) {
+        case "course":
+          return [resource.instructor, resource.university]
+            .filter((v) => v && v !== "YouTube").join(" · ");
+        case "book":
+          return resource.authors ? resource.authors.join(", ") : "";
+        case "talk":
+          return [
+            resource.speakers ? resource.speakers.join(", ") : "",
+            resource.event
+          ].filter(Boolean).join(" · ");
+        case "blog":
+          return resource.authors ? resource.authors.join(", ") : "";
+        default:
+          return "";
+      }
+    }
 
     document.addEventListener("DOMContentLoaded", function () {
       // DOM elements
@@ -1015,11 +1138,11 @@
           );
         }
 
-        // Apply tag filter
+        // Apply tag filter (alias-aware so verbose tags still match the chips)
         let filteredResources = allResources;
         if (activeTag !== "all") {
           filteredResources = filteredResources.filter(
-            (res) => res.tags && res.tags.includes(activeTag)
+            (res) => matchesCategory(res, activeTag)
           );
         }
 
@@ -1042,7 +1165,10 @@
 
       // Renders the cards
       function renderResources(resources) {
+        const resultsCount = document.getElementById("resultsCount");
+
         if (resources.length === 0) {
+          resultsCount.textContent = "";
           resourcesGrid.innerHTML = `
             <div class="empty-state">
               <i class="fas fa-search"></i>
@@ -1052,84 +1178,70 @@
           return;
         }
 
+        resultsCount.innerHTML =
+          `Showing <strong>${resources.length}</strong> resource${resources.length === 1 ? "" : "s"}`;
         resourcesGrid.innerHTML = "";
+
+        const TYPE_META = {
+          course: { icon: "fa-graduation-cap", label: "Course" },
+          book:   { icon: "fa-book", label: "Book" },
+          talk:   { icon: "fa-microphone-alt", label: "Talk" },
+          blog:   { icon: "fa-rss", label: "Blog" }
+        };
 
         resources.forEach((resource, index) => {
           const card = document.createElement("div");
           card.className = "resource-card fade-in";
-          card.style.animationDelay = `${index * 0.05}s`;
+          card.style.animationDelay = `${Math.min(index, 12) * 0.04}s`;
           card.setAttribute("data-id", resource.id);
           card.setAttribute("data-type", resource.type);
 
-          // Icon + label
-          let typeIcon = "";
-          let typeLabel = "";
-          switch (resource.type) {
-            case "course":
-              typeIcon = "fa-graduation-cap";
-              typeLabel = "Course";
-              break;
-            case "book":
-              typeIcon = "fa-book";
-              typeLabel = "Book";
-              break;
-            case "talk":
-              typeIcon = "fa-microphone-alt";
-              typeLabel = "Talk";
-              break;
-            case "blog":
-              typeIcon = "fa-rss";
-              typeLabel = "Blog";
-              break;
-          }
+          const meta = TYPE_META[resource.type] || { icon: "fa-file", label: "Resource" };
 
-          // Tags
+          // Tags (show up to 3, then a +N chip)
           let tagsHtml = "";
           if (resource.tags && resource.tags.length > 0) {
             tagsHtml = `
               <div class="card-tags">
-                ${resource.tags
-                  .slice(0, 3)
-                  .map((tag) => `<span class="card-tag">${tag}</span>`)
-                  .join("")}
-                ${
-                  resource.tags.length > 3
-                    ? `<span class="card-tag">+${resource.tags.length - 3}</span>`
-                    : ""
-                }
+                ${resource.tags.slice(0, 3).map((tag) => `<span class="card-tag">${tag}</span>`).join("")}
+                ${resource.tags.length > 3 ? `<span class="card-tag">+${resource.tags.length - 3}</span>` : ""}
               </div>
             `;
           }
 
-          // Only show difficulty if resource type is course or book
+          // Difficulty badge (courses & books only)
           let difficultyHtml = "";
           if ((resource.type === "course" || resource.type === "book") && resource.difficulty) {
             let diffClass = "intermediate";
-            if (resource.difficulty === "Beginner") diffClass = "beginner";
-            if (resource.difficulty === "Advanced") diffClass = "advanced";
+            if (/beginner/i.test(resource.difficulty)) diffClass = "beginner";
+            else if (/advanced/i.test(resource.difficulty)) diffClass = "advanced";
             difficultyHtml = `<div class="difficulty ${diffClass}">${resource.difficulty}</div>`;
           }
 
-          // Card inner HTML
+          const source = getCardSource(resource);
+          const sourceHtml = source ? `<div class="card-source">${source}</div>` : "";
+
+          const dateLabel = resource.dateAdded
+            ? new Date(resource.dateAdded).toLocaleDateString("en-US", { year: "numeric", month: "short" })
+            : "";
+
           card.innerHTML = `
-            <img src="${resource.thumbnail}" alt="${resource.title}" class="card-thumbnail">
-            <div class="card-content">
-              <div class="card-meta">
-                <div class="card-type">
-                  <i class="fas ${typeIcon}"></i> ${typeLabel}
-                </div>
-                <div>
-                  ${new Date(resource.dateAdded).toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "short",
-                  })}
-                </div>
-              </div>
-              <h3 class="card-title">${resource.title}</h3>
-              <p class="card-description">${resource.description}</p>
-              ${tagsHtml}
+            <div class="card-media">
+              <div class="media-fallback"><i class="fas ${meta.icon}"></i></div>
+              <img src="${resource.thumbnail}" alt="${resource.title}" class="card-thumbnail"
+                   loading="lazy" onerror="this.style.display='none'">
+              <span class="card-badge-type"><i class="fas ${meta.icon}"></i> ${meta.label}</span>
+              ${difficultyHtml}
             </div>
-            ${difficultyHtml}
+            <div class="card-content">
+              <h3 class="card-title">${resource.title}</h3>
+              ${sourceHtml}
+              <p class="card-description">${resource.description}</p>
+              <div class="card-footer">
+                ${tagsHtml}
+                <span class="card-date">${dateLabel}</span>
+              </div>
+            </div>
           `;
 
           // On click, show modal

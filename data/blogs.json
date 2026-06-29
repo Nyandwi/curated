@@ -17,7 +17,7 @@
       "description": "Personal blog by Andrej Karpathy, covering deep learning, AI, and more.",
       "longDescription": "Andrej Karpathy, a prominent figure in the deep learning community, writes about neural networks, AI trends, self-driving cars, and occasionally personal reflections on technology. His blog offers insights into both the technical and philosophical aspects of AI development.",
       "url": "http://karpathy.github.io/",
-      "thumbnail": "https://distill.pub/2019/activation-atlas/thumbnail.jpg",
+      "thumbnail": "https://avatars.githubusercontent.com/u/241138?v=4",
       "authors": ["Andrej Karpathy"],
       "tags": ["ML", "Deep Learning"],
       "difficulty": "Advanced",
