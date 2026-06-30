@@ -113,7 +113,7 @@
     "description": "A free, open-source curriculum that builds every algorithm from raw math before importing a single framework. It spans 503 lessons across 20 phases, from linear algebra to autonomous agent swarms, in Python, TypeScript, Rust, and Julia.",
     "longDescription": "This curriculum is the spine: 20 phases, 503 lessons, and four languages (Python, TypeScript, Rust, and Julia), running from linear algebra at one end to autonomous swarms at the other. Every algorithm is built from raw math first (backpropagation, tokenizer, attention, the agent loop), so that by the time PyTorch shows up, you already understand what it is doing under the hood. Each lesson runs the same loop: read the problem, derive the math, write the code, run the test, keep the artifact. No five-minute videos, no copy-paste deploys, no hand-holding. It is free, open source (MIT), and built to run on your own laptop. Maintained by Rohit Ghumare and contributors.",
     "url": "https://aiengineeringfromscratch.com/",
-    "thumbnail": "",
+    "thumbnail": "https://aiengineeringfromscratch.com/og-image.png",
     "instructor": "Rohit Ghumare & contributors",
     "university": "Open Source",
     "dateAdded": "2026-06-29",
