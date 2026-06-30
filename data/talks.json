@@ -1,5 +1,21 @@
 [
   {
+    "id": "talk8",
+    "title": "The Bitter Lesson",
+    "description": "Rich Sutton's influential 2019 essay arguing that the biggest lesson from 70 years of AI research is that general methods that leverage computation, namely search and learning, ultimately win out over approaches that build in human knowledge.",
+    "longDescription": "In this short essay, Richard Sutton argues that the most important lesson from decades of AI research is that general-purpose methods that scale with computation (namely search and learning) consistently outperform systems that rely on hand-crafted human knowledge. Time and again, researchers have built in domain knowledge for short-term gains, only to be overtaken by simpler approaches that better exploit ever-growing compute. The piece has become a touchstone in debates about scaling, foundation models, and the future direction of AI research.",
+    "url": "http://incompleteideas.net/IncIdeas/BitterLesson.html",
+    "thumbnail": "",
+    "speakers": ["Richard S. Sutton"],
+    "event": "Essay (incompleteideas.net)",
+    "date": "2019-03-13",
+    "dateAdded": "2026-06-30",
+    "duration": null,
+    "slides": null,
+    "tags": ["AI", "RL", "Research", "Scaling"],
+    "difficulty": null
+  },
+  {
     "id": "talk1",
     "title": "The Parable of the Parser",
     "description": "Ross Girshick talk critiques legacy paradigms in NLP and computer vision, advocating for a shift toward real-world, open-ended AI tasks like VQA and embodied vision.",
@@ -82,7 +98,7 @@
     "id": "talk6",
     "title": "Learning to Reason with LLMs",
     "description": "This video is a presentation titled \"Learning to Reason with LLMs,\" given at a Simons Institute event, featuring Noam Brown from OpenAI.",
-    "longDescription": "Naom Brown discusses his background in AI, particularly his work on poker-playing AI, and then delves into the development and implications of the 01 model from OpenAI. Key points include the impact of search/planning in AI game playing (poker, Go), the introduction of the 01 model which scales inference compute using reinforcement learning to refine its \"chain of thought\", allowing for error correction and better problem-solving. Brown suggests this approach opens new avenues for AI progress beyond pre-training costs and mentions a new focus on multi-agent reasoning at OpenAI.",
+    "longDescription": "Naom Brown discusses his background in AI, particularly his work on poker-playing AI, and then explores the development and implications of the o1 model from OpenAI. Key points include the impact of search/planning in AI game playing (poker, Go), the introduction of the 01 model which scales inference compute using reinforcement learning to refine its \"chain of thought\", allowing for error correction and better problem-solving. Brown suggests this approach opens new avenues for AI progress beyond pre-training costs and mentions a new focus on multi-agent reasoning at OpenAI.",
     "url": "https://simons.berkeley.edu/talks/noam-brown-openai-2024-09-26",
     "thumbnail": "https://noambrown.github.io/assets/img/profile1.jpg",
     "speakers": ["Noam Brown"],
