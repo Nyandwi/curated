@@ -137,30 +137,45 @@
       font-weight: 300;
     }
 
-    /* Quote box in the hero */
-    .quote-box {
+    /* Rotating hero quote (no card, auto-advancing) */
+    .quote-rotator {
       position: relative;
-      max-width: 600px;
-      margin: 2rem auto;
-      background: var(--coffee);
-      border-radius: 12px;
-      padding: 2rem;
-      box-shadow: var(--card-shadow);
+      max-width: 700px;
+      margin: 2.5rem auto 0;
+      text-align: center;
+      min-height: 9.5rem;
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .quote-rotator.fading {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+
+    .quote-icon {
+      font-size: 2rem;
+      color: var(--caput-mortuum);
+      opacity: 0.9;
+      margin-bottom: 1.1rem;
+      display: block;
     }
 
     .quote-text {
-      font-size: 1.25rem;
-      line-height: 1.6;
+      font-size: 1.65rem;
+      line-height: 1.5;
       font-style: italic;
+      font-weight: 400;
       color: var(--tan);
       margin-bottom: 1rem;
-      text-align: left;
+      text-shadow: 0 1px 14px rgba(37, 52, 79, 0.3);
     }
 
     .quote-author {
       font-weight: 600;
       color: var(--tan);
-      text-align: right;
+      opacity: 0.9;
+      letter-spacing: 0.02em;
+      text-shadow: 0 1px 14px rgba(37, 52, 79, 0.3);
     }
 
     .hero-buttons {
@@ -883,11 +898,10 @@
         your learning journey
       </p>
 
-      <div class="quote-box">
-        <div class="quote-text">
-          "Iteratively take on concrete projects and accomplish them depth wise, learning on demand, and only compare yourself to younger you, never to others"
-        </div>
-        <div class="quote-author">— Andrej Karpathy</div>
+      <div class="quote-rotator" id="quoteRotator">
+        <i class="fas fa-quote-left quote-icon"></i>
+        <p class="quote-text" id="quoteText">Iteratively take on concrete projects and accomplish them depth wise, learning on demand, and only compare yourself to younger you, never to others</p>
+        <div class="quote-author" id="quoteAuthor">— Andrej Karpathy</div>
       </div>
 
       <div class="hero-buttons">
@@ -1096,6 +1110,32 @@
       scrollToTopBtn.addEventListener("click", function () {
         window.scrollTo({ top: 0, behavior: "smooth" });
       });
+
+      // Auto-rotating hero quotes (no controls; gentle fade + slide)
+      const heroQuotes = [
+        { text: "Iteratively take on concrete projects and accomplish them depth wise, learning on demand, and only compare yourself to younger you, never to others", author: "Andrej Karpathy" },
+        { text: "What I cannot create, I do not understand.", author: "Richard Feynman" },
+        { text: "The purpose of computing is insight, not numbers.", author: "Richard Hamming" },
+        { text: "I have no special talent. I am only passionately curious.", author: "Albert Einstein" },
+        { text: "Nothing in life is to be feared, it is only to be understood.", author: "Marie Curie" },
+        { text: "An expert is a person who has made all the mistakes that can be made in a very narrow field.", author: "Niels Bohr" },
+        { text: "Study hard what interests you the most in the most undisciplined, irreverent and original manner possible.", author: "Richard Feynman" }
+      ];
+      const quoteRotator = document.getElementById("quoteRotator");
+      const quoteText = document.getElementById("quoteText");
+      const quoteAuthor = document.getElementById("quoteAuthor");
+      if (quoteRotator && quoteText && quoteAuthor) {
+        let qIndex = 0;
+        setInterval(function () {
+          quoteRotator.classList.add("fading");
+          setTimeout(function () {
+            qIndex = (qIndex + 1) % heroQuotes.length;
+            quoteText.textContent = heroQuotes[qIndex].text;
+            quoteAuthor.textContent = "— " + heroQuotes[qIndex].author;
+            quoteRotator.classList.remove("fading");
+          }, 600);
+        }, 6000);
+      }
 
       // Fetch data from JSON files (including blogs)
       function loadJsonData() {
