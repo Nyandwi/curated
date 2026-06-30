@@ -149,7 +149,7 @@
     "longDescription": "As massive, costly-to-train large language models have become commonplace, much of the interest has shifted to how outputs are generated from them, the inference process. Inference-time algorithms can be applied on top of an already-trained model to improve generation quality, lower latency, or induce additional controllability, letting users run models on a laptop, serve millions of outputs at scale, or dramatically increase generation quality without additional training. This course surveys the wide space of inference-time techniques with a particular focus on implementation and practical use cases: students learn to implement and compare these methods, study the theory behind inference-time scaling of compute, and implement representative examples across several classes of algorithms. The final project applies inference-time strategies to an open-ended generation task and a reasoning task.",
     "url": "https://www.phontron.com/class/lminference-fall2025/",
     "youtube": "https://www.youtube.com/playlist?list=PL8PYTP1V4I8DY15Ob83nmwBAVyNtUQadX",
-    "thumbnail": "https://lti.cs.cmu.edu/images/logos/logo-new-3.png",
+    "thumbnail": "https://i.ytimg.com/vi/p-MWR625HB8/maxresdefault.jpg",
     "instructor": "Graham Neubig, Amanda Bertsch",
     "university": "Carnegie Mellon University",
     "dateAdded": "2026-06-30",
