@@ -1,5 +1,77 @@
 [
     {
+      "id": "blog3",
+      "title": "Lil'Log — Lilian Weng",
+      "description": "Deep, meticulously researched explainers on modern AI — attention, diffusion models, reinforcement learning, LLM agents, prompt engineering, and AI safety. A favorite reference for understanding hard topics from first principles.",
+      "longDescription": "Lil'Log is Lilian Weng's technical blog, widely regarded as one of the best places to develop a deep understanding of machine learning topics. Each post is a thorough, well-illustrated survey that synthesizes the research literature into a coherent narrative — covering areas such as attention and transformers, diffusion models, reinforcement learning, LLM-powered agents, hallucination, and AI safety. The posts are detailed enough to serve as standalone references for researchers and practitioners alike.",
+      "url": "https://lilianweng.github.io/",
+      "thumbnail": "https://github.com/lilianweng.png",
+      "authors": ["Lilian Weng"],
+      "tags": ["Deep Learning", "NLP", "RL", "LLMs"],
+      "difficulty": "Intermediate to Advanced",
+      "dateAdded": "2026-06-30"
+    },
+    {
+      "id": "blog4",
+      "title": "Jay Alammar's Blog",
+      "description": "Beautifully illustrated, intuition-first explanations of machine learning and NLP — home of 'The Illustrated Transformer' and many other visual guides that taught the field how attention and LLMs work.",
+      "longDescription": "Jay Alammar's blog is famous for making complex machine learning ideas click through clear, step-by-step visualizations. It is the home of widely loved posts such as The Illustrated Transformer, The Illustrated BERT, and The Illustrated Word2Vec, which have introduced countless people to the core mechanics of modern NLP and large language models. If you learn best by seeing how things work, this is an essential resource.",
+      "url": "https://jalammar.github.io/",
+      "thumbnail": "https://github.com/jalammar.png",
+      "authors": ["Jay Alammar"],
+      "tags": ["NLP", "Transformers", "Deep Learning", "LLMs"],
+      "difficulty": "Beginner to Intermediate",
+      "dateAdded": "2026-06-30"
+    },
+    {
+      "id": "blog5",
+      "title": "Ahead of AI — Sebastian Raschka",
+      "description": "Sebastian Raschka's magazine on large language models and AI research — clear deep dives into model architectures, training and finetuning methods, and practical takeaways from the latest papers.",
+      "longDescription": "Ahead of AI is Sebastian Raschka's widely read publication on machine learning and AI. It blends accessible explanations with research-grounded depth, regularly breaking down new LLM architectures, training and finetuning techniques, reasoning methods, and the most important recent papers. It's a great way to stay current while actually understanding the underlying ideas, written by the author of several popular machine learning books.",
+      "url": "https://magazine.sebastianraschka.com/",
+      "thumbnail": "https://github.com/rasbt.png",
+      "authors": ["Sebastian Raschka"],
+      "tags": ["LLMs", "Deep Learning", "ML", "NLP"],
+      "difficulty": "Intermediate",
+      "dateAdded": "2026-06-30"
+    },
+    {
+      "id": "blog6",
+      "title": "colah's blog — Christopher Olah",
+      "description": "Chris Olah's classic blog of deeply intuitive explanations — including the legendary 'Understanding LSTM Networks' and foundational posts on neural networks, representations, and visualization.",
+      "longDescription": "colah's blog is a small collection of unusually clear and influential posts on neural networks and how to think about them. Pieces like Understanding LSTM Networks, Neural Networks, Manifolds, and Topology, and Visualizing Representations have shaped how a generation of practitioners build intuition for deep learning. Chris Olah went on to co-found the Distill journal and Anthropic's interpretability work, and this blog remains a touchstone for clear technical writing.",
+      "url": "https://colah.github.io/",
+      "thumbnail": "https://github.com/colah.png",
+      "authors": ["Christopher Olah"],
+      "tags": ["Deep Learning", "Neural Networks", "Interpretability", "ML"],
+      "difficulty": "Intermediate",
+      "dateAdded": "2026-06-30"
+    },
+    {
+      "id": "blog7",
+      "title": "Transformer Circuits Thread",
+      "description": "Anthropic's interpretability research thread — a deep, ongoing effort to reverse-engineer how transformer language models work internally, from induction heads and superposition to circuit tracing and monosemanticity.",
+      "longDescription": "The Transformer Circuits Thread is a series of research articles from Anthropic's interpretability team working to reverse-engineer the inner workings of transformer language models. It develops a mechanistic understanding of these systems through foundational work such as A Mathematical Framework for Transformer Circuits, Toy Models of Superposition, Towards Monosemanticity, and circuit-tracing studies of real models. The writing is technical but exceptionally clear, and it represents some of the most important work on understanding what is actually happening inside LLMs.",
+      "url": "https://transformer-circuits.pub/",
+      "thumbnail": "https://transformer-circuits.pub/images/framework.png",
+      "authors": ["Anthropic Interpretability Team"],
+      "tags": ["Interpretability", "LLMs", "Deep Learning", "Research"],
+      "difficulty": "Advanced",
+      "dateAdded": "2026-06-30"
+    },
+    {
+      "id": "blog8",
+      "title": "The Transformer Blueprint",
+      "description": "A holistic, deeply illustrated guide to the Transformer neural network architecture — from attention and multi-head attention to the full encoder–decoder stack and the many models built on top of it.",
+      "longDescription": "The Transformer Blueprint is an in-depth guide to the Transformer architecture and the ideas leading up to it. Starting from earlier sequence models, it builds up scaled dot-product and multi-head attention, the encoder–decoder structure, residual connections and layer normalization, and then surveys the broad family of Transformer-based models across language and vision. With extensive diagrams throughout, it serves as a single comprehensive reference for understanding how Transformers work end to end.",
+      "url": "https://deeprevision.github.io/posts/001-transformer/",
+      "thumbnail": "https://deeprevision.github.io/posts/001-transformer/transformer.png",
+      "authors": ["Jean Nyandwi"],
+      "tags": ["NLP", "Transformers", "Deep Learning", "LLMs"],
+      "difficulty": "Intermediate to Advanced",
+      "dateAdded": "2026-06-30"
+    },
+    {
       "id": "blog1",
       "title": "Distill",
       "description": "A modern medium for presenting research in ML with clarity and visualizations.",
