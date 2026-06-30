@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 1200px; height: 630px; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #5a4630 0%, #3a2c1c 55%, #2a2016 100%);
+      color: #f5ecdd;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 78px 90px;
+    }
+    .dots {
+      position: absolute; inset: 0;
+      background-image: radial-gradient(rgba(216,182,147,0.10) 1.5px, transparent 1.5px);
+      background-size: 28px 28px;
+      opacity: 0.7;
+    }
+    .top { position: relative; display: flex; align-items: center; gap: 18px; margin-bottom: 36px; }
+    .cap { width: 60px; height: 60px; }
+    .brand { font-size: 23px; font-weight: 600; letter-spacing: 0.06em; color: #D8B693; text-transform: uppercase; }
+    h1 {
+      position: relative; font-size: 82px; font-weight: 800; line-height: 1.06;
+      letter-spacing: -0.02em; margin-bottom: 28px; color: #f7efe2;
+    }
+    .accent { color: #D8B693; }
+    p {
+      position: relative; font-size: 31px; font-weight: 300; color: #e8dcc8;
+      max-width: 940px; margin-bottom: 52px; line-height: 1.35;
+    }
+    .tags { position: relative; display: flex; gap: 14px; }
+    .tag {
+      font-size: 23px; font-weight: 600; color: #f5ecdd;
+      background: rgba(99,2,10,0.85); padding: 12px 26px; border-radius: 999px;
+    }
+    .url {
+      position: absolute; bottom: 46px; right: 90px;
+      font-size: 24px; color: #D8B693; opacity: 0.9; font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="dots"></div>
+  <div class="top">
+    <svg class="cap" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+      <g fill="#D8B693">
+        <path d="M32 14 60 27 32 40 4 27Z"/>
+        <path d="M16 32 32 39.5 48 32 48 45 C48 50 16 50 16 45Z"/>
+      </g>
+      <path d="M60 27 60 44" stroke="#D8B693" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+      <circle cx="60" cy="47" r="3.4" fill="#63020A"/>
+    </svg>
+    <div class="brand">Curated AI Learning</div>
+  </div>
+  <h1>Foundations &amp; <span class="accent">Frontiers</span><br>of AI</h1>
+  <p>A curated collection of the best AI and ML resources: courses, books, talks, and blogs.</p>
+  <div class="tags">
+    <span class="tag">Courses</span>
+    <span class="tag">Books</span>
+    <span class="tag">Talks</span>
+    <span class="tag">Blogs</span>
+  </div>
+  <div class="url">nyandwi.com/curated</div>
+</body>
+</html>
