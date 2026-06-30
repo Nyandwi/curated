@@ -165,17 +165,17 @@
       line-height: 1.5;
       font-style: italic;
       font-weight: 400;
-      color: var(--tan);
+      color: #f5ecdd; /* warm cream, lighter than tan for contrast */
       margin-bottom: 1rem;
-      text-shadow: 0 1px 14px rgba(37, 52, 79, 0.3);
+      text-shadow: 0 1px 16px rgba(37, 52, 79, 0.45);
     }
 
     .quote-author {
       font-weight: 600;
-      color: var(--tan);
-      opacity: 0.9;
+      color: #f5ecdd;
+      opacity: 0.85;
       letter-spacing: 0.02em;
-      text-shadow: 0 1px 14px rgba(37, 52, 79, 0.3);
+      text-shadow: 0 1px 16px rgba(37, 52, 79, 0.45);
     }
 
     .hero-buttons {
@@ -901,7 +901,7 @@
       <div class="quote-rotator" id="quoteRotator">
         <i class="fas fa-quote-left quote-icon"></i>
         <p class="quote-text" id="quoteText">Iteratively take on concrete projects and accomplish them depth wise, learning on demand, and only compare yourself to younger you, never to others</p>
-        <div class="quote-author" id="quoteAuthor">— Andrej Karpathy</div>
+        <div class="quote-author" id="quoteAuthor">Andrej Karpathy</div>
       </div>
 
       <div class="hero-buttons">
@@ -1131,7 +1131,7 @@
           setTimeout(function () {
             qIndex = (qIndex + 1) % heroQuotes.length;
             quoteText.textContent = heroQuotes[qIndex].text;
-            quoteAuthor.textContent = "— " + heroQuotes[qIndex].author;
+            quoteAuthor.textContent = heroQuotes[qIndex].author;
             quoteRotator.classList.remove("fading");
           }, 600);
         }, 6000);
