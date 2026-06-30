@@ -85,7 +85,7 @@
     "description": "Rich Sutton's influential 2019 essay arguing that the biggest lesson from 70 years of AI research is that general methods that leverage computation, namely search and learning, ultimately win out over approaches that build in human knowledge.",
     "longDescription": "In this short essay, Richard Sutton argues that the most important lesson from decades of AI research is that general-purpose methods that scale with computation (namely search and learning) consistently outperform systems that rely on hand-crafted human knowledge. Time and again, researchers have built in domain knowledge for short-term gains, only to be overtaken by simpler approaches that better exploit ever-growing compute. The piece has become a touchstone in debates about scaling, foundation models, and the future direction of AI research.",
     "url": "http://incompleteideas.net/IncIdeas/BitterLesson.html",
-    "thumbnail": "",
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/SD_2025_-_Richard_Sutton_01_%28cropped%29.jpg/330px-SD_2025_-_Richard_Sutton_01_%28cropped%29.jpg",
     "speakers": ["Richard S. Sutton"],
     "event": "Essay (incompleteideas.net)",
     "date": "2019-03-13",
