@@ -1,5 +1,21 @@
 [
   {
+    "id": "talk9",
+    "title": "LLM Reasoning",
+    "description": "Denny Zhou (Google DeepMind) on what makes LLMs reason: why generating intermediate steps helps, how chain-of-thought can be elicited from pretrained models, and the key ideas behind improving reasoning in large language models.",
+    "longDescription": "In this Stanford CS25 lecture, Denny Zhou, who leads reasoning research at Google DeepMind, distills key insights on reasoning in large language models. He discusses why generating intermediate steps (chain-of-thought) dramatically improves performance, how reasoning can be elicited from pretrained models through prompting and decoding, the role of self-consistency and answer aggregation, and what current results suggest about the path toward more capable reasoning systems. The talk offers a clear, research-grounded mental model of how and why LLMs reason.",
+    "url": "https://www.youtube.com/watch?v=ebnX5Ur1hBk",
+    "video": "https://www.youtube.com/watch?v=ebnX5Ur1hBk",
+    "thumbnail": "https://i.ytimg.com/vi/ebnX5Ur1hBk/maxresdefault.jpg",
+    "speakers": ["Denny Zhou"],
+    "event": "Stanford CS25 (Transformers United)",
+    "dateAdded": "2026-06-30",
+    "duration": null,
+    "slides": "https://dennyzhou.github.io/LLM-Reasoning-Stanford-CS-25.pdf",
+    "tags": ["LLMs", "Reasoning", "NLP", "AI"],
+    "difficulty": "Intermediate"
+  },
+  {
     "id": "talk8",
     "title": "The Bitter Lesson",
     "description": "Rich Sutton's influential 2019 essay arguing that the biggest lesson from 70 years of AI research is that general methods that leverage computation, namely search and learning, ultimately win out over approaches that build in human knowledge.",
