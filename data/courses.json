@@ -143,6 +143,24 @@
     "difficulty": "Advanced"
   },
   {
+    "id": "course24",
+    "title": "CS 11-664/763: Inference Algorithms for Language Modeling",
+    "description": "A CMU course surveying the wide space of inference-time techniques for large language models — methods applied on top of an already-trained model to improve generation quality, lower latency, or add controllability, with a strong focus on implementation and practical use.",
+    "longDescription": "As massive, costly-to-train large language models have become commonplace, much of the interest has shifted to how outputs are generated from them — the inference process. Inference-time algorithms can be applied on top of an already-trained model to improve generation quality, lower latency, or induce additional controllability, letting users run models on a laptop, serve millions of outputs at scale, or dramatically increase generation quality without additional training. This course surveys the wide space of inference-time techniques with a particular focus on implementation and practical use cases: students learn to implement and compare these methods, study the theory behind inference-time scaling of compute, and implement representative examples across several classes of algorithms. The final project applies inference-time strategies to an open-ended generation task and a reasoning task.",
+    "url": "https://www.phontron.com/class/lminference-fall2025/",
+    "youtube": "https://www.youtube.com/playlist?list=PL8PYTP1V4I8DY15Ob83nmwBAVyNtUQadX",
+    "thumbnail": "https://lti.cs.cmu.edu/images/logos/logo-new-3.png",
+    "instructor": "Graham Neubig, Amanda Bertsch",
+    "university": "Carnegie Mellon University",
+    "dateAdded": "2026-06-30",
+    "duration": "Semester-long",
+    "prerequisite": "NLP / machine learning background and Python",
+    "certification": false,
+    "free": true,
+    "tags": ["NLP", "LLMs", "Inference", "Deep Learning"],
+    "difficulty": "Advanced"
+  },
+  {
     "id": "course2",
     "title": "LLMs for General Audience",
     "description": "Andrej Karpathy's series provides a comprehensive introduction to Large Language Models, covering their development, capabilities, and practical applications in an accessible manner.",
