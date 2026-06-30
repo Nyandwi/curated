@@ -125,6 +125,24 @@
     "difficulty": "Beginner to Advanced"
   },
   {
+    "id": "course23",
+    "title": "CS231N: Deep Learning for Computer Vision",
+    "description": "Stanford's flagship deep learning for computer vision course — a deep dive into end-to-end neural networks for core vision tasks, alongside modern transformers, diffusion models, and vision-language models.",
+    "longDescription": "Computer vision is ubiquitous, powering search, image understanding, mapping, medicine, drones, and self-driving cars. This course is a deep dive into deep learning methods with a focus on end-to-end models for core vision tasks such as image classification, localization, and detection — alongside modern approaches like transformers, diffusion models, and vision-language models that power today's AI systems. Over the 10-week course, students implement and train their own neural networks, gain a detailed understanding of cutting-edge research, and tackle real-world vision problems through hands-on assignments and a final project, learning practical engineering tricks for training and fine-tuning deep networks.",
+    "url": "https://cs231n.stanford.edu/",
+    "youtube": "https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16",
+    "thumbnail": "https://i.ytimg.com/vi/2fq9wYslV0A/maxresdefault.jpg",
+    "instructor": "Fei-Fei Li, Ehsan Adeli, and others",
+    "university": "Stanford University",
+    "dateAdded": "2026-06-30",
+    "duration": "10 weeks",
+    "prerequisite": "Python, calculus, linear algebra, and basic machine learning",
+    "certification": false,
+    "free": true,
+    "tags": ["Vision", "Computer Vision", "Deep Learning", "Neural Networks"],
+    "difficulty": "Advanced"
+  },
+  {
     "id": "course2",
     "title": "LLMs for General Audience",
     "description": "Andrej Karpathy's series provides a comprehensive introduction to Large Language Models, covering their development, capabilities, and practical applications in an accessible manner.",

@@ -1,5 +1,21 @@
 [
   {
+    "id": "book17",
+    "title": "Build a Reasoning Model (From Scratch)",
+    "description": "A hands-on guide to how reasoning LLMs actually work — starting from a pre-trained base model and adding reasoning step by step in code, including inference-time scaling, reinforcement learning, and distillation.",
+    "longDescription": "In Build a Reasoning Model (from Scratch), you learn how a reasoning large language model works by building the capabilities yourself. Rather than describing reasoning only in theory, the book takes a hands-on approach: starting from a pre-trained base LLM, you add reasoning step by step in code so you can see exactly how it works. It focuses on techniques not covered in the author's Build a Large Language Model (from Scratch) — including inference-time scaling, reinforcement-learning training, and distillation. The two books complement each other but can also be read independently.",
+    "url": "https://www.manning.com/books/build-a-reasoning-model-from-scratch",
+    "thumbnail": "https://images.manning.com/264/352/resize/book/1/b918613-9a87-44e7-92d8-a16fad2f571e/Raschka2-HI.png",
+    "authors": ["Sebastian Raschka"],
+    "publisher": "Manning Publications",
+    "year": "2026",
+    "pages": null,
+    "tags": ["LLMs", "Reasoning", "RL", "NLP"],
+    "difficulty": "Intermediate",
+    "dateAdded": "2026-06-29",
+    "githubRepo": "https://github.com/rasbt/reasoning-from-scratch"
+  },
+  {
     "id": "book16",
     "title": "Foundations of Computer Vision",
     "description": "A modern, intuition-first introduction to computer vision from an image-processing and machine-learning perspective, packed with visualizations. Free to read online.",
