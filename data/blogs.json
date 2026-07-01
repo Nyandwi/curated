@@ -2,7 +2,7 @@
     {
       "id": "blog3",
       "title": "Lil'Log",
-      "description": "Deep, meticulously researched explainers on modern AI, covering attention, diffusion models, reinforcement learning, LLM agents, prompt engineering, and AI safety. A favorite reference for understanding hard topics from first principles.",
+      "description": "Deep, thoroughly researched explainers on modern AI, covering attention, diffusion models, reinforcement learning, LLM agents, prompt engineering, and AI safety. A favorite reference for understanding hard topics from first principles.",
       "longDescription": "Lil'Log is Lilian Weng's technical blog, widely regarded as one of the best places to develop a deep understanding of machine learning topics. Each post is a thorough, well-illustrated survey that synthesizes the research literature into a coherent narrative, covering areas such as attention and transformers, diffusion models, reinforcement learning, LLM-powered agents, hallucination, and AI safety. The posts are detailed enough to serve as standalone references for researchers and practitioners alike.",
       "url": "https://lilianweng.github.io/",
       "thumbnail": "https://github.com/lilianweng.png",
