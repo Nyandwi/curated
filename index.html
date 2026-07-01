@@ -294,7 +294,8 @@
       color: var(--coffee);
     }
 
-    .filter-btn {
+    .filter-btn,
+    .level-btn {
       border: 1px solid rgba(79, 61, 40, 0.25);
       background-color: rgba(255, 255, 255, 0.25);
       color: var(--coffee);
@@ -306,18 +307,35 @@
       font-size: 0.9rem;
     }
 
-    .filter-btn.active {
+    .filter-btn.active,
+    .level-btn.active {
       background-color: var(--coffee);
       color: var(--tan);
       border-color: var(--coffee);
       box-shadow: var(--btn-shadow);
     }
 
-    .filter-btn:hover {
+    .filter-btn:hover,
+    .level-btn:hover {
       background-color: var(--caput-mortuum);
       color: var(--tan);
       border-color: var(--caput-mortuum);
       transform: translateY(-2px);
+    }
+
+    /* Level filter row */
+    .level-filter {
+      margin-top: -1rem;
+    }
+
+    .filter-label {
+      color: var(--coffee);
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      opacity: 0.75;
+      margin-right: 0.25rem;
     }
 
     /* Resource Type Tabs */
@@ -951,6 +969,14 @@
       <button class="filter-btn" data-tag="DL">DL</button>
     </div>
 
+    <div class="filter-section level-filter" id="levelFilter" style="display: none;">
+      <span class="filter-label">Level</span>
+      <button class="level-btn active" data-level="all">All Levels</button>
+      <button class="level-btn" data-level="beginner">Beginner</button>
+      <button class="level-btn" data-level="intermediate">Intermediate</button>
+      <button class="level-btn" data-level="advanced">Advanced</button>
+    </div>
+
     <div class="resource-type-tabs">
       <button class="tab-btn active" data-type="all">All</button>
       <button class="tab-btn" data-type="courses">Courses</button>
@@ -1035,6 +1061,26 @@
       return resource.tags.some((tag) => aliases.includes(tag.toLowerCase()));
     }
 
+    // Expand a difficulty string into the set of levels it covers, so ranges
+    // like "Beginner to Advanced" match every level in between and "All Levels"
+    // matches all three. Returns lowercase level names.
+    const LEVEL_ORDER = ["beginner", "intermediate", "advanced"];
+    function levelSpan(difficulty) {
+      if (!difficulty) return [];
+      const d = difficulty.toLowerCase();
+      if (d.includes("all level")) return LEVEL_ORDER.slice();
+      const present = LEVEL_ORDER.filter((l) => d.includes(l));
+      if (present.length === 0) return [];
+      const indices = present.map((l) => LEVEL_ORDER.indexOf(l));
+      return LEVEL_ORDER.slice(Math.min(...indices), Math.max(...indices) + 1);
+    }
+
+    // True if a resource covers the selected difficulty level.
+    function matchesLevel(resource, level) {
+      if (level === "all") return true;
+      return levelSpan(resource.difficulty).includes(level);
+    }
+
     // Short "source" subtitle shown on each card (instructor / authors / speakers).
     function getCardSource(resource) {
       switch (resource.type) {
@@ -1060,6 +1106,8 @@
       const resourcesGrid = document.getElementById("resourcesGrid");
       const searchInput = document.getElementById("searchInput");
       const filterButtons = document.querySelectorAll(".filter-btn");
+      const levelButtons = document.querySelectorAll(".level-btn");
+      const levelFilter = document.getElementById("levelFilter");
       const tabButtons = document.querySelectorAll(".tab-btn");
       const modal = document.getElementById("resourceModal");
       const exploreButton = document.getElementById("exploreButton");
@@ -1067,6 +1115,7 @@
 
       // State
       let activeTag = "all";
+      let activeLevel = "all";
       let activeType = "all";
       let searchQuery = "";
       let currentResource = null;
@@ -1089,14 +1138,37 @@
         });
       });
 
+      levelButtons.forEach((button) => {
+        button.addEventListener("click", function () {
+          levelButtons.forEach((btn) => btn.classList.remove("active"));
+          this.classList.add("active");
+          activeLevel = this.dataset.level;
+          loadResources();
+        });
+      });
+
       tabButtons.forEach((button) => {
         button.addEventListener("click", function () {
           tabButtons.forEach((btn) => btn.classList.remove("active"));
           this.classList.add("active");
           activeType = this.dataset.type;
+          updateLevelFilterVisibility();
           loadResources();
         });
       });
+
+      // Difficulty level only makes sense for courses and books, so only show
+      // the Level filter on those tabs. Reset it when it's hidden.
+      function updateLevelFilterVisibility() {
+        const applies = activeType === "courses" || activeType === "books";
+        levelFilter.style.display = applies ? "" : "none";
+        if (!applies && activeLevel !== "all") {
+          activeLevel = "all";
+          levelButtons.forEach((btn) =>
+            btn.classList.toggle("active", btn.dataset.level === "all")
+          );
+        }
+      }
 
       document.getElementById("closeModal").addEventListener("click", function () {
         modal.style.display = "none";
@@ -1208,6 +1280,13 @@
         if (activeTag !== "all") {
           filteredResources = filteredResources.filter(
             (res) => matchesCategory(res, activeTag)
+          );
+        }
+
+        // Apply difficulty level filter (range-aware)
+        if (activeLevel !== "all") {
+          filteredResources = filteredResources.filter(
+            (res) => matchesLevel(res, activeLevel)
           );
         }
 
