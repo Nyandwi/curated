@@ -36,47 +36,42 @@
   <style>
     /*
       ----------------------------------------
-      CORE COLOR PALETTE
+      CORE COLOR PALETTE (unified warm)
       ----------------------------------------
-      - Space Cadet:       #25344F  (unused now)
-      - Slate Gray:        #525254
-      - Tan:               #D8B693
-      - Coffee:            #4F3D28
-      - Caput Mortuum:     #63020A
-
-      ----------------------------------------
-      OVERRIDES
-      ----------------------------------------
-      - Card color:        #2e4156 (charcoal black)
-      - Footer background: #c0b3a5 (malta)
+      - Tan:            #D8B693  (accents, dark-surface text)
+      - Cream:          #f5ecdd  (light text on dark, light surfaces)
+      - Coffee:         #4F3D28  (body text, buttons)
+      - Coffee Deep:    #3a2c1c  (headings)
+      - Espresso:       #2e2214  (hero end, footer, dark overlays)
+      - Caput Mortuum:  #63020A  (accent for tags, active states)
     */
 
     :root {
-      --space-cadet: #25344F;
-      --slate-gray: #525254;
       --tan: #D8B693;
+      --cream: #f5ecdd;
       --coffee: #4F3D28;
+      --coffee-deep: #3a2c1c;
+      --espresso: #2e2214;
       --caput-mortuum: #63020A;
 
-      /* Overridden/Added */
-      --card-color: #2e4156;  /* Charcoal black for cards */
-      --footer-bg:  #c0b3a5;  /* Malta for footer */
-
       /* Functional roles */
-      --bg-color: var(--tan);            /* Main page background */
+      --page-bg: #f0e6d3;               /* Main page background (soft cream) */
+      --surface: #fbf6eb;               /* Modal, light surfaces */
+      --card-navy: #3c5470;             /* Card background (lighter navy) */
+      --card-navy-deep: #2e4156;        /* Navy for overlays/scrims on cards */
       --text: var(--coffee);            /* Default text color */
-      --text-light: var(--tan);         /* Lighter text on dark surfaces */
+      --text-muted: rgba(79, 61, 40, 0.68);
       --accent: var(--caput-mortuum);   /* Accent color for tags, etc. */
       --primary: var(--coffee);         /* Primary button/element color */
-      --border: var(--slate-gray);      /* For subtle borders */
-      
+      --border: rgba(79, 61, 40, 0.22); /* For subtle borders */
+
       /* Shadows (based on coffee) */
-      --card-shadow: rgba(79, 61, 40, 0.15) 0px 8px 24px;
+      --card-shadow: rgba(79, 61, 40, 0.14) 0px 8px 24px;
       --btn-shadow: rgba(79, 61, 40, 0.15) 0px 1px 2px 0px;
 
-      /* Hero gradient from Tan to Coffee */
-      --hero-bg-start: var(--tan);
-      --hero-bg-end: var(--coffee);
+      /* Hero gradient: warm brown into espresso */
+      --hero-bg-start: #7a6144;
+      --hero-bg-end: var(--espresso);
     }
 
     /* Reset and base typography */
@@ -89,7 +84,7 @@
     }
 
     body {
-      background-color: var(--bg-color);
+      background-color: var(--page-bg);
       color: var(--text);
       line-height: 1.6;
       transition: all 0.3s ease;
@@ -115,7 +110,7 @@
         var(--hero-bg-start) 0%,
         var(--hero-bg-end) 100%
       );
-      color: var(--text-light);
+      color: var(--cream);
     }
 
     .hero-overlay {
@@ -124,7 +119,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: radial-gradient(rgba(79, 61, 40, 0.18) 1px, transparent 1px);
+      background-image: radial-gradient(rgba(245, 236, 221, 0.12) 1px, transparent 1px);
       background-size: 22px 22px;
       opacity: 0.6;
       pointer-events: none;
@@ -168,7 +163,7 @@
 
     .quote-icon {
       font-size: 2rem;
-      color: var(--caput-mortuum);
+      color: var(--tan);
       opacity: 0.9;
       margin-bottom: 1.1rem;
       display: block;
@@ -181,7 +176,7 @@
       font-weight: 400;
       color: #f5ecdd; /* warm cream, lighter than tan for contrast */
       margin-bottom: 1rem;
-      text-shadow: 0 1px 16px rgba(37, 52, 79, 0.45);
+      text-shadow: 0 1px 16px rgba(0, 0, 0, 0.3);
     }
 
     .quote-author {
@@ -189,7 +184,7 @@
       color: #f5ecdd;
       opacity: 0.85;
       letter-spacing: 0.02em;
-      text-shadow: 0 1px 16px rgba(37, 52, 79, 0.45);
+      text-shadow: 0 1px 16px rgba(0, 0, 0, 0.3);
     }
 
     .hero-buttons {
@@ -201,8 +196,8 @@
     }
 
     .hero-button {
-      background-color: var(--primary);
-      color: var(--tan);
+      background-color: var(--cream);
+      color: var(--coffee-deep);
       border: none;
       padding: 1rem 2rem;
       font-size: 1.1rem;
@@ -218,6 +213,7 @@
 
     .hero-button:hover {
       background-color: var(--caput-mortuum);
+      color: var(--cream);
       transform: translateY(-5px);
       box-shadow: rgba(79, 61, 40, 0.25) 0px 15px 30px -8px;
     }
@@ -275,7 +271,7 @@
       border-radius: 10px;
       border: 1px solid var(--border);
       width: 100%;
-      background-color: var(--tan);
+      background-color: #fffdf6;
       color: var(--coffee);
       transition: all 0.3s ease;
     }
@@ -297,7 +293,7 @@
     .filter-btn,
     .level-btn {
       border: 1px solid rgba(79, 61, 40, 0.25);
-      background-color: rgba(255, 255, 255, 0.25);
+      background-color: rgba(255, 253, 246, 0.55);
       color: var(--coffee);
       padding: 0.55rem 1.1rem;
       border-radius: 999px;
@@ -406,23 +402,23 @@
     }
 
     .resource-card {
-      background-color: var(--card-color);
-      color: var(--text-light);
+      background-color: var(--card-navy);
+      color: var(--cream);
       border-radius: 16px;
       overflow: hidden;
       box-shadow: var(--card-shadow);
       transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
       cursor: pointer;
       position: relative;
-      border: 1px solid rgba(216, 182, 147, 0.12);
+      border: 1px solid rgba(245, 236, 221, 0.16);
       display: flex;
       flex-direction: column;
     }
 
     .resource-card:hover {
       transform: translateY(-8px);
-      box-shadow: rgba(37, 52, 79, 0.35) 0px 24px 50px -12px;
-      border-color: rgba(216, 182, 147, 0.3);
+      box-shadow: rgba(46, 65, 86, 0.4) 0px 24px 50px -12px;
+      border-color: rgba(245, 236, 221, 0.32);
     }
 
     /* Media area (image + overlays + graceful fallback) */
@@ -430,7 +426,7 @@
       position: relative;
       height: 170px;
       overflow: hidden;
-      background: linear-gradient(135deg, var(--coffee) 0%, var(--card-color) 100%);
+      background: linear-gradient(135deg, #4c6580 0%, var(--card-navy-deep) 100%);
     }
 
     .media-fallback {
@@ -440,7 +436,7 @@
       align-items: center;
       justify-content: center;
       font-size: 3rem;
-      color: rgba(216, 182, 147, 0.35);
+      color: rgba(245, 236, 221, 0.35);
     }
 
     .card-thumbnail {
@@ -461,7 +457,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(37,52,79,0.45) 0%, rgba(37,52,79,0) 35%);
+      background: linear-gradient(to bottom, rgba(46,65,86,0.45) 0%, rgba(46,65,86,0) 35%);
       pointer-events: none;
     }
 
@@ -478,12 +474,12 @@
       font-size: 0.72rem;
       font-weight: 600;
       letter-spacing: 0.02em;
-      color: var(--tan);
-      background-color: rgba(37, 52, 79, 0.78);
+      color: var(--cream);
+      background-color: rgba(46, 65, 86, 0.78);
       backdrop-filter: blur(4px);
-      border: 1px solid rgba(216, 182, 147, 0.2);
+      border: 1px solid rgba(245, 236, 221, 0.25);
     }
-    .card-badge-type i { color: var(--tan); }
+    .card-badge-type i { color: var(--cream); }
 
     .card-content {
       padding: 1.5rem;
@@ -497,7 +493,7 @@
       margin-bottom: 0.4rem;
       font-weight: 700;
       line-height: 1.3;
-      color: var(--tan);
+      color: var(--cream);
       display: -webkit-box;
       -webkit-line-clamp: 2;
       line-clamp: 2;
@@ -507,7 +503,7 @@
 
     .card-source {
       font-size: 0.82rem;
-      color: rgba(216, 182, 147, 0.7);
+      color: rgba(245, 236, 221, 0.68);
       margin-bottom: 0.85rem;
       display: -webkit-box;
       -webkit-line-clamp: 1;
@@ -517,7 +513,7 @@
     }
 
     .card-description {
-      color: rgba(216, 182, 147, 0.82);
+      color: rgba(245, 236, 221, 0.82);
       font-size: 0.9rem;
       line-height: 1.55;
       margin-bottom: 1.25rem;
@@ -547,14 +543,8 @@
       padding: 0.28rem 0.6rem;
       border-radius: 999px;
       font-size: 0.72rem;
-      color: var(--tan);
+      color: var(--cream);
       font-weight: 500;
-    }
-
-    .card-date {
-      font-size: 0.75rem;
-      color: rgba(216, 182, 147, 0.55);
-      white-space: nowrap;
     }
 
     .difficulty {
@@ -598,7 +588,7 @@
     }
 
     .modal-content {
-      background-color: var(--tan);
+      background-color: var(--surface);
       border-radius: 16px;
       width: 90%;
       max-width: 900px;
@@ -614,7 +604,7 @@
       border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
-      background-color: var(--tan);
+      background-color: var(--surface);
       z-index: 10;
       display: flex;
       align-items: center;
@@ -679,7 +669,7 @@
     }
 
     .transcript-container {
-      background-color: var(--slate-gray);
+      background-color: var(--espresso);
       padding: 1.5rem;
       border-radius: 8px;
       margin-top: 1rem;
@@ -692,14 +682,14 @@
       white-space: pre-line;
       font-size: 0.95rem;
       line-height: 1.6;
-      color: var(--text-light);
+      color: var(--cream);
     }
 
     .toggle-transcript {
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      background-color: var(--tan);
+      background-color: var(--surface);
       border: 1px solid var(--border);
       color: var(--coffee);
       padding: 0.5rem 1rem;
@@ -723,7 +713,7 @@
       gap: 1rem;
       position: sticky;
       bottom: 0;
-      background-color: var(--tan);
+      background-color: var(--surface);
       z-index: 10;
     }
 
@@ -743,8 +733,8 @@
     }
 
     .close-btn:hover {
-      background-color: var(--slate-gray);
-      color: var(--tan);
+      background-color: rgba(79, 61, 40, 0.15);
+      color: var(--coffee-deep);
     }
 
     .modal-btn {
@@ -762,7 +752,7 @@
 
     .primary-btn {
       background-color: var(--coffee);
-      color: var(--tan);
+      color: var(--cream);
     }
 
     .primary-btn:hover {
@@ -770,15 +760,15 @@
     }
 
     .secondary-btn {
-      background-color: var(--tan);
+      background-color: transparent;
       color: var(--coffee);
       border: 1px solid var(--coffee);
     }
 
     .secondary-btn:hover {
-      background-color: var(--slate-gray);
-      color: var(--tan);
-      border-color: var(--slate-gray);
+      background-color: var(--coffee);
+      color: var(--cream);
+      border-color: var(--coffee);
     }
 
     /* Empty state */
@@ -832,11 +822,10 @@
 
     /* Footer */
     footer {
-      background-color: var(--footer-bg); /* Malta */
-      color: var(--card-color);          /* Charcoal black text for contrast */
+      background-color: var(--espresso);
+      color: rgba(245, 236, 221, 0.85);
       padding: 4rem 2rem;
       text-align: center;
-      border-top: 1px solid var(--border);
     }
 
     .footer-content {
@@ -856,24 +845,28 @@
     }
 
     .social-link {
-      color: var(--card-color);
+      color: var(--cream);
       font-size: 1.5rem;
       transition: all 0.2s ease;
     }
 
     .social-link:hover {
-      color: var(--caput-mortuum);
+      color: var(--tan);
       transform: translateY(-3px);
     }
 
     /* Responsive */
     @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-
       .hero p {
         font-size: 1.1rem;
+      }
+
+      .quote-rotator {
+        min-height: 13rem;
+      }
+
+      .quote-text {
+        font-size: 1.35rem;
       }
 
       .resources-grid {
@@ -1365,10 +1358,6 @@
           const source = getCardSource(resource);
           const sourceHtml = source ? `<div class="card-source">${source}</div>` : "";
 
-          const dateLabel = resource.dateAdded
-            ? new Date(resource.dateAdded).toLocaleDateString("en-US", { year: "numeric", month: "short" })
-            : "";
-
           // Only render the <img> when a thumbnail is provided; otherwise the
           // gradient + icon fallback behind it shows through cleanly.
           const imgHtml = resource.thumbnail
@@ -1388,7 +1377,6 @@
               <p class="card-description">${resource.description}</p>
               <div class="card-footer">
                 ${tagsHtml}
-                <span class="card-date">${dateLabel}</span>
               </div>
             </div>
           `;
